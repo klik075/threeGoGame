@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2875965147096782234}
   - component: {fileID: 1249569771356079444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,12 @@ GameObject:
   - component: {fileID: 4689762266284392877}
   - component: {fileID: 8269518295967609637}
   - component: {fileID: 8417633265579201904}
-  m_Layer: 0
+  - component: {fileID: 7254322130555916194}
+  - component: {fileID: 2584172572956038726}
+  - component: {fileID: 8739901588283419108}
+  m_Layer: 6
   m_Name: Girl
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +119,7 @@ Transform:
   m_Children:
   - {fileID: 4571876572614290663}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8269518295967609637
 Rigidbody2D:
@@ -144,7 +147,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8417633265579201904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,6 +183,45 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &7254322130555916194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971079961206589048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 129c4cdca8e11e54fb2946ce80a866da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2584172572956038726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971079961206589048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followRange: 0
+  targetTag: Player
+  characterRenderer: {fileID: 3514287878005335335}
+--- !u!114 &8739901588283419108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971079961206589048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050e63ae56fe84266b28c37dcaf17999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2995788257759012212
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +233,7 @@ GameObject:
   - component: {fileID: 4571876572614290663}
   - component: {fileID: 3514287878005335335}
   - component: {fileID: 2515839066303743276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

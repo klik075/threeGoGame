@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6213495509698050791}
   - component: {fileID: 341041702043084659}
   - component: {fileID: 1071637641727897423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8624521455460881777}
   - component: {fileID: 1286979654923481082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,11 +202,12 @@ GameObject:
   - component: {fileID: 5228050686416940402}
   - component: {fileID: 4882080227575143030}
   - component: {fileID: 1417465626542264335}
-  - component: {fileID: 8595859431852716393}
-  - component: {fileID: 7393904050186088984}
-  m_Layer: 0
+  - component: {fileID: 6364291962798230044}
+  - component: {fileID: 4977200054482615792}
+  - component: {fileID: 859616728217314583}
+  m_Layer: 6
   m_Name: Man
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +226,7 @@ Transform:
   m_Children:
   - {fileID: 6213495509698050791}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &4882080227575143030
 CircleCollider2D:
@@ -288,8 +289,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &8595859431852716393
+  m_Constraints: 4
+--- !u!114 &6364291962798230044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,13 +299,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7176525377168267835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
+  m_Script: {fileID: 11500000, guid: 129c4cdca8e11e54fb2946ce80a866da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRange: 0
-  targetTag: Player
-  characterRenderer: {fileID: 341041702043084659}
---- !u!114 &7393904050186088984
+--- !u!114 &4977200054482615792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,3 +314,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050e63ae56fe84266b28c37dcaf17999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &859616728217314583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followRange: 39.8
+  targetTag: Player
+  characterRenderer: {fileID: 341041702043084659}
