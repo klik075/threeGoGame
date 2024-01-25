@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 1047862780}
   - component: {fileID: 1047862784}
   - component: {fileID: 1047862788}
+  - component: {fileID: 1047862789}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -542,6 +543,20 @@ MonoBehaviour:
   armRenderer: {fileID: 494928305}
   armPivot: {fileID: 446623615}
   characterRender: {fileID: 1563568717}
+--- !u!114 &1047862789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047862779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d8f8e5aeaad445093d2e2b29459241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawnPosition: {fileID: 809837052}
+  testPrefab: {fileID: 4813430753002415848, guid: a79e8bcad63b64b82a9f8c7656c492bf, type: 3}
 --- !u!1 &1563568715
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563568716}
   - component: {fileID: 1563568717}
+  - component: {fileID: 1563568718}
   m_Layer: 0
   m_Name: MainSprite
   m_TagString: Untagged
@@ -627,3 +643,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1563568718
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563568715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1edd152e62f454054bc05f14195cae70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
