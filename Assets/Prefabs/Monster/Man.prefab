@@ -202,6 +202,8 @@ GameObject:
   - component: {fileID: 5228050686416940402}
   - component: {fileID: 4882080227575143030}
   - component: {fileID: 1417465626542264335}
+  - component: {fileID: 8595859431852716393}
+  - component: {fileID: 7393904050186088984}
   m_Layer: 0
   m_Name: Man
   m_TagString: Untagged
@@ -287,3 +289,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8595859431852716393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followRange: 0
+  targetTag: Player
+  characterRenderer: {fileID: 341041702043084659}
+--- !u!114 &7393904050186088984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050e63ae56fe84266b28c37dcaf17999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
