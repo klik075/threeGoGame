@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour //CharacterController
 {
+    GameManager gameManager;
     protected Transform ClosestTarget { get ; private set; }
 
     //protected override void Awake()
@@ -12,7 +13,8 @@ public class EnemyController : MonoBehaviour //CharacterController
     //}
     protected virtual void Start()
     {
-        
+        gameManager = GameManager.instance;
+        //ClosestTarget = GameManager.Player;
     }
     protected virtual void FixedUpdate()
     { 
