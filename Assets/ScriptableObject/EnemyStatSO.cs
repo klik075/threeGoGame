@@ -9,8 +9,6 @@ public class EnemyStatSO : ScriptableObject
     public string name;
     public string info;
     public int lv;
-    public float exp;
-    public float fullExp;
     public float hp;
     public float attack;
     public float size;
