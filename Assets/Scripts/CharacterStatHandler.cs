@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,15 +17,18 @@ public class CharacterStatHandler : MonoBehaviour
         UpdateCharacterStats();
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateCharacterStats() //수정 고려
     {
-        
+        AttackSO attackSO = null;
+        if (baseStats.attackSO != null)
+        {
+            attackSO = Instantiate(baseStats.attackSO);
+        }
+        currentStats = new CharacterStat { attackSO = attackSO };
+        currentStats.maxHp = baseStats.maxHp;
+        currentStats.speed = baseStats.speed;
+        //������ ���ݵ鵵 �����ؾ� ��
     }
 
     private void UpdateCharacterStats()
