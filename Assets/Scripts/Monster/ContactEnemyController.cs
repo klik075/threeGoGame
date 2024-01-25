@@ -25,7 +25,7 @@ public class ContactEnemyController : EnemyController
         {
             direction = DirectionToTarget(); //방향을 플레이쪽으로
         }
-        //CallMoveEvent(direction);
+        CallMoveEvent(direction);
         Rotate(direction);
     }
 

@@ -12,6 +12,10 @@ public class CharacterController : MonoBehaviour
     private float _timeSinceLastAtteck = float.MaxValue;
     protected bool IsAttacking { get; set; }
 
+    protected virtual void Awake()
+    { 
+
+    }
     protected virtual void Update()
     {
         HandleAttackDelay();

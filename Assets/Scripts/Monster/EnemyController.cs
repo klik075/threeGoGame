@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour //CharacterController
+public class EnemyController : CharacterController
 {
     GameManager gameManager;
     protected Transform ClosestTarget { get ; private set; }
 
-    //protected override void Awake()
-    //{
-    //    base.Awake();
-    //}
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     protected virtual void Start()
     {
         gameManager = GameManager.instance;
-        //ClosestTarget = GameManager.Player;
+        ClosestTarget = gameManager.Player;
     }
     protected virtual void FixedUpdate()
     { 
-
+        base.FixedUpdate();
     }
     protected float DistanceToTarget()
     {
