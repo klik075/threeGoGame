@@ -1,7 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/KCW_New.unity.meta
+guid: beb5ae7d8426ab047940dc25829fff34
+========
 guid: 495ffdbbead4e154686682c830193537
 folderAsset: yes
-Assets/Artwork.meta
+>>>>>>>> main:Assets/Artwork.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: 495ffdbbead4e154686682c830193537
-folderAsset: yes
-Assets/Artwork.meta
-DefaultImporter:
+guid: feafcdf2543cf564eae425a540aa0b55
+NativeFormatImporter:
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
