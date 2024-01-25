@@ -5,9 +5,7 @@ using UnityEngine;
 public enum CharacterType
 {
     Player1,
-    Player2,
-    Enemy1,
-    Enemy2
+    Player2
 }
 
 public class CharacterStat
@@ -15,5 +13,5 @@ public class CharacterStat
     public CharacterType type;
     public float maxHp;
     public float speed;
-    public StatSO statInfo;
+    public CharacterStatSO statInfo;
 }
