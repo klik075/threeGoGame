@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DefaultEnemyData", menuName ="Enemy/StatInfo/Default", order = 0)]
-public class StatSO : ScriptableObject
+public class EnemyStatSO : ScriptableObject
 {
     [Header("Enemy Info")]
     public string name;
