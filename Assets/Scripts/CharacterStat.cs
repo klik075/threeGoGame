@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStat : MonoBehaviour
+public enum CharacterType
 {
-    public enum CharacterType
-    {
-        PlayerCat,
-        PlayerDog,
-        Monster1,
-        Monster2
-    }
+    Player1,
+    Player2,
+    Enemy1,
+    Enemy2
+}
 
-    public string characterName;
-    public string characterInfo;
-    public int lv;
-    public float exp;
-    public float fullExp;
-    public float hp;
-    public float attack;
+public class CharacterStat
+{
+    public CharacterType type;
+    public float maxHp;
+    public float speed;
+    public StatSO statInfo;
 }
