@@ -29,8 +29,10 @@ public class CharacterStatHandler : MonoBehaviour
     //    //������ ���ݵ鵵 �����ؾ� ��
     //}
 
+
     private void UpdateCharacterStats()
     {
+        /*
         CharacterStatSO CharacterSO = null;
         if (CharacterbaseStats.statInfo != null)
         {
@@ -38,5 +40,6 @@ public class CharacterStatHandler : MonoBehaviour
         }
 
         CurrentStats = new CharacterStat { statInfo = CharacterSO };
+        */
     }
 }
