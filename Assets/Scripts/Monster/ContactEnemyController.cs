@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class ContactEnemyController : EnemyController
 {
-    [SerializeField][Range(0f, 100f)] private float followRange;
+    [SerializeField][Range(0f, 1000f)] private float followRange;
     [SerializeField] private string targetTag = "Player";
     private bool _isCollidingWithTarget;
 
@@ -23,12 +23,17 @@ public class ContactEnemyController : EnemyController
 
     private void OnDamage()
     {
-        followRange = 100f;
+        followRange = 1000f;
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        if (_isCollidingWithTarget) //충돌 종료 후 실행
+        {
+            ApplyHealthChange();
+        }
 
         Vector2 direction = Vector2.zero;
         if (DistanceToTarget() < followRange) //사정거리 안에 들어오면
@@ -67,5 +72,13 @@ public class ContactEnemyController : EnemyController
         }
         _isCollidingWithTarget = false;
     }
-    //private void Apply
+    private void ApplyHealthChange()
+    {
+        AttackSO attackSO = Stats.CurrentStats.attackSO;
+        bool hasBeenChanged = _collidingTargetHealthSystem.ChangeHealth(-attackSO.power);
+        if (attackSO.isOnKnockback && _collidingMovement != null)
+        {
+            _collidingMovement.ApplyKnockback(transform,attackSO.knockbackPower,attackSO.knockbackTime);
+        }
+    }
 }

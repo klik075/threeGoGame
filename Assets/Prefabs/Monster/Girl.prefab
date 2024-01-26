@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 7092922093578477306}
   - component: {fileID: 7407887874531716178}
   - component: {fileID: 961940096573009114}
+  - component: {fileID: 7793047518672292482}
+  - component: {fileID: 8854603374524584343}
   m_Layer: 6
   m_Name: Girl
   m_TagString: Enemy
@@ -275,6 +277,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 050e63ae56fe84266b28c37dcaf17999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7793047518672292482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971079961206589048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cf7ef9ebd8af746922da52614ae5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &8854603374524584343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971079961206589048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50c09bca3ac610449e89b19a20e3792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2995788257759012212
