@@ -21,16 +21,14 @@ public enum StatsChangeType
 [Serializable]
 public class CharacterStat
 {
-    public CharacterType Charactertype;
+    public CharacterType type;
     public StatsChangeType statsChangeType;
-    public string name;
+    [Range(1, 100)] public int maxHealth;
+    [Range(1f, 20f)] public float speed;
+    public string characterName; //?? ???? ????
     public string info;
     public int lv;
     public float exp;
     public float fullExp;
-    public float hp;
-    public float attack;
-    [Range(1, 100)] public float maxHp;
-    [Range(1f, 20f)] public float speed;
     public AttackSO attackSO;
 }
