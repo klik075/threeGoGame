@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 398692614}
   - component: {fileID: 398692613}
   m_Layer: 0
-  m_Name: GameClearMenu
+  m_Name: GameEndMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2432,7 +2432,7 @@ GameObject:
   - component: {fileID: 1376020640}
   - component: {fileID: 1376020639}
   m_Layer: 0
-  m_Name: GameClearPopup
+  m_Name: GameEndPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
