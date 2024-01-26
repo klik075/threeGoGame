@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController _controller;
     private CharacterStatHandler _stats;
-
     private Vector2 _movementDirection = Vector2.zero;
     private Rigidbody2D _rigidbody;
 
