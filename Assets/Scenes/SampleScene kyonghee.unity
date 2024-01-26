@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793496867}
   - component: {fileID: 793496868}
+  - component: {fileID: 793496869}
   m_Layer: 0
   m_Name: ProjectileManager
   m_TagString: Untagged
@@ -377,7 +378,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _impactParticleSystem: {fileID: 0}
-  testObj: {fileID: 4813430753002415848, guid: a79e8bcad63b64b82a9f8c7656c492bf, type: 3}
+--- !u!114 &793496869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793496866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f3f81a847a24c4595f52292daba8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Spit
+    prefeb: {fileID: 4813430753002415848, guid: a79e8bcad63b64b82a9f8c7656c492bf, type: 3}
+    size: 20
 --- !u!1 &809837051
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,16 +634,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     type: 0
-    maxHealth: 10
+    statsChangeType: 2
+    maxHealth: 0
     speed: 5
-    statInfo: {fileID: 0}
     characterName: 
     info: 
     lv: 0
     exp: 0
     fullExp: 0
     attackSO: {fileID: 11400000, guid: 50c6073942670e44eb7fd414f854278f, type: 2}
-    statsChangeType: 2
   statsModifiers: []
 --- !u!114 &1047862791
 MonoBehaviour:
