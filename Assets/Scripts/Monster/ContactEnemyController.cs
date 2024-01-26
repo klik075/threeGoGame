@@ -11,9 +11,19 @@ public class ContactEnemyController : EnemyController
     private bool _isCollidingWithTarget;
 
     [SerializeField] private SpriteRenderer characterRenderer;
+    private HealthSystem healthSystem;
+    private HealthSystem _collidingTargetHealthSystem;
+    private PlayerMovement _collidingMovement;
     protected override void Start()
     {
         base.Start();
+        healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDamage += OnDamage; //자신이 데미지를 받았을 때 처리 함수
+    }
+
+    private void OnDamage()
+    {
+        followRange = 100f;
     }
 
     protected override void FixedUpdate()
@@ -34,4 +44,28 @@ public class ContactEnemyController : EnemyController
         float rotZ = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg; // 각도 설정
         characterRenderer.flipX = Math.Abs(rotZ) > 90f; //왼쪽을 바라보면 스프라이트도 왼쪽으로
     }
+    private void OnTriggerEnter2D(Collider2D collision) // 충돌 시작
+    {
+        GameObject receiver = collision.gameObject;
+        if (!receiver.CompareTag(targetTag)) // 플레이어와 부딪치지 않았다면
+        {
+            return;
+        }
+        _collidingTargetHealthSystem = receiver.GetComponent<HealthSystem>(); 
+        if(_collidingTargetHealthSystem != null)
+        {
+            _isCollidingWithTarget = true; //접촉한 것으로 본다.
+        }
+        _collidingMovement = receiver.GetComponent<PlayerMovement>();
+    }
+    private void OnTriggerExit2D(Collider2D collision) //충돌 후 떨어질 때
+    {
+        GameObject receiver = collision.gameObject;
+        if (!receiver.CompareTag(targetTag)) // 플레이어와 부딪치지 않았다면
+        {
+            return;
+        }
+        _isCollidingWithTarget = false;
+    }
+    //private void Apply
 }
