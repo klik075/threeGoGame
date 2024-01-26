@@ -258,7 +258,7 @@ MonoBehaviour:
     size: 20
   - tag: Bubble
     prefeb: {fileID: 2630841758085953669, guid: 925ed032964d16a428ec8e7b88ce3b03, type: 3}
-    size: 10
+    size: 50
 --- !u!114 &318542309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 389807486}
   m_Layer: 7
   m_Name: MainSprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,4 +875,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy1Prefab: {fileID: 2971079961206589048, guid: 6e4b018b68e502f428ce6f22aa45a4da, type: 3}
-  Enemy2Prefab: {fileID: 2971079961206589048, guid: 6e4b018b68e502f428ce6f22aa45a4da, type: 3}
+  Enemy2Prefab: {fileID: 7176525377168267835, guid: ff75e75b4b978324d92605e27a1ea979, type: 3}

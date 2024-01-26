@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Monster_RangedAttackData
   m_EditorClassIdentifier: 
   size: 1
-  delay: 2
+  delay: 0.1
   power: 2
-  speed: 5
+  speed: 2
   target:
     serializedVersion: 2
     m_Bits: 128
