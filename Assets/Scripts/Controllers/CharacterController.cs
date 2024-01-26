@@ -48,7 +48,8 @@ public class CharacterController : MonoBehaviour
             if (IsAttacking && _timeSinceLastAtteck > Stats.CurrentStats.attackSO.delay)
             {
                 _timeSinceLastAtteck = 0;
-                CallAttackEvent(Stats.CurrentStats.attackSO); 
+                CallAttackEvent(Stats.CurrentStats.attackSO);
+                //Debug.Log("onfire");
                
             }
         }
