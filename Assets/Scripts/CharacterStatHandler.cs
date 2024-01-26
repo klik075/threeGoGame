@@ -28,4 +28,5 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.speed = baseStats.speed;
         //추가작업
     }
+    
 }
