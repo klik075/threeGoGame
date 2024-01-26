@@ -442,7 +442,6 @@ GameObject:
   - component: {fileID: 1047862788}
   - component: {fileID: 1047862789}
   - component: {fileID: 1047862790}
-  - component: {fileID: 1047862791}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -644,19 +643,6 @@ MonoBehaviour:
     fullExp: 0
     attackSO: {fileID: 11400000, guid: 50c6073942670e44eb7fd414f854278f, type: 2}
   statsModifiers: []
---- !u!114 &1047862791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047862779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d8f8e5aeaad445093d2e2b29459241, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpawnPosition: {fileID: 8836590473790722429, guid: a79e8bcad63b64b82a9f8c7656c492bf, type: 3}
 --- !u!1 &1563568715
 GameObject:
   m_ObjectHideFlags: 0
