@@ -342,16 +342,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2113da429a328b45888307af7b46113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterbaseStats:
-    Charactertype: 3
+  baseStats:
+    type: 3
     statsChangeType: 2
-    name: Man
+    maxHealth: 0
+    speed: 3
+    characterName: 
     info: 
-    lv: 2
+    lv: 0
     exp: 0
     fullExp: 0
-    hp: 0
-    maxHp: 0
-    speed: 3
     attackSO: {fileID: 11400000, guid: 1d991a7c6103a78459e65e99c108671c, type: 2}
-  CstatsModifier: []
+  statsModifiers: []
