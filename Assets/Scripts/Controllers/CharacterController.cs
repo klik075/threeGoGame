@@ -25,20 +25,32 @@ public class CharacterController : MonoBehaviour
 
     private void HandleAttackDelay()
     {
-
-        if (Stats.CurrentStats.attackSO == null)
-            return; // attackso 가 없으면 공격 안함 
-
-        if (_timeSinceLastAtteck <= Stats.CurrentStats.attackSO.delay) // attackso 에 잡아놓은 값으로 딜레이 처리 
+        //{
+        //    if (_timeSinceLastAtteck <= 0.2f)
+        //    {
+        //        _timeSinceLastAtteck += Time.deltaTime;
+        //    }
+        //    else if (IsAttacking)
+        //    {
+        //        _timeSinceLastAtteck = 0;
+        //        CallAttackEvent();
+        //    }
+        //}
         {
-            _timeSinceLastAtteck += Time.deltaTime;
-        }
+            if (Stats.CurrentStats.attackSO == null)
+                return; 
 
-        if (IsAttacking && _timeSinceLastAtteck > Stats.CurrentStats.attackSO.delay)
-        {
-            _timeSinceLastAtteck = 0;
-            CallAttackEvent(Stats.CurrentStats.attackSO); // Input 에서 event를 call 하면 구독되어 있는것에 신호를 준다
-            // 근데 이것도 컨트롤러임 슈팅은 어택이벤트에서 한다 
+            if (_timeSinceLastAtteck <= Stats.CurrentStats.attackSO.delay) 
+            {
+                _timeSinceLastAtteck += Time.deltaTime;
+            }
+
+            if (IsAttacking && _timeSinceLastAtteck > Stats.CurrentStats.attackSO.delay)
+            {
+                _timeSinceLastAtteck = 0;
+                CallAttackEvent(Stats.CurrentStats.attackSO); 
+               
+            }
         }
     }
 
@@ -59,15 +71,12 @@ public class CharacterController : MonoBehaviour
         OnLookEvent?.Invoke(direction);
     }
 
-    public void CallAttackEvent(AttackSO attackSO) //AttackSO attackSO
+    public void CallAttackEvent(AttackSO attackSO) 
     {
         OnAttackEvent?.Invoke(attackSO);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
+    
 }
