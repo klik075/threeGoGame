@@ -43,34 +43,34 @@ public class RangedAttackController : MonoBehaviour
         _rigidbody.velocity = _direction * _attackData.speed;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    // layermask 연산부분 
-    //    if (levelCollisionLayer.value == (levelCollisionLayer.value | (1 << collision.gameObject.layer))) 
-    //    {
-    //        DestroyProjectile(collision.ClosestPoint(transform.position) - _direction * .2f, fxOnDestory); 
-    //    }
-    //    else if (_attackData.target.value == (_attackData.target.value | (1 << collision.gameObject.layer)))
-    //    {
-    //        HealthSystem healthSystem = collision.GetComponent<HealthSystem>();
-    //        if (healthSystem != null)
-    //        {
-    //            healthSystem.ChangeHealth(-_attackData.power);
-    //            if (_attackData.isOnKnockback)
-    //            {
-    //                TopDownMovement movement = collision.GetComponent<TopDownMovement>();
-    //                if (movement != null)
-    //                {
-    //                    movement.ApplyKnockback(transform, _attackData.knockbackPower, _attackData.knockbackTime);
-    //                }
-    //            }
-    //        }
-    //        DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // layermask 연산부분 
+        if (levelCollisionLayer.value == (levelCollisionLayer.value | (1 << collision.gameObject.layer))) // Level과 부딪치면 
+        {
+            DestroyProjectile(collision.ClosestPoint(transform.position) - _direction * .2f, fxOnDestory); //투사체 삭제
+        }
+        else if (_attackData.target.value == (_attackData.target.value | (1 << collision.gameObject.layer))) // 타겟과 부딪쳤다면
+        {
+            HealthSystem healthSystem = collision.GetComponent<HealthSystem>(); //상대의 헬스시스템을 가져오고
+            if (healthSystem != null) // 널이 아니면
+            {
+                healthSystem.ChangeHealth(-_attackData.power); //체력을 자신의 공격력 만큼 닳게 한다.
+                if (_attackData.isOnKnockback)//넉백이 있다면
+                {
+                    PlayerMovement movement = collision.GetComponent<PlayerMovement>();//상대방의 Move 컴포넌트를 가져오고
+                    if (movement != null) //Move가 있다면
+                    {
+                        movement.ApplyKnockback(transform, _attackData.knockbackPower, _attackData.knockbackTime); //상대에게 넉백 적용
+                    }
+                }
+            }
+            DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);//투사체 삭제
+        }
+    }
 
-    
-    public void InitializeAttack(Vector2 direction, RangedAttackData attackData, ProjectileManager projectileManager)
+
+    public void InitializeAttack(Vector2 direction, RangedAttackData attackData, ProjectileManager projectileManager) //투사체 초기화
     {
         _projectileManager = projectileManager;
         _attackData = attackData;
