@@ -14,29 +14,29 @@ public class CharacterStatHandler : MonoBehaviour
     {
         UpdateCharacterStats();
     }
-    // Start is called before the first frame update
 
-    //private void UpdateCharacterStats() //수정 고려
-    //{
-    //    AttackSO attackSO = null;
-    //    if (baseStats.attackSO != null)
-    //    {
-    //        attackSO = Instantiate(baseStats.attackSO);
-    //    }
-    //    currentStats = new CharacterStat { attackSO = attackSO };
-    //    currentStats.maxHp = baseStats.maxHp;
-    //    currentStats.speed = baseStats.speed;
-    //    //������ ���ݵ鵵 �����ؾ� ��
-    //}
 
-    private void UpdateCharacterStats()
+    private void UpdateCharacterStats() //수정 고려
     {
-        CharacterStatSO CharacterSO = null;
-        if (CharacterbaseStats.statInfo != null)
+        AttackSO attackSO = null;
+        if (CharacterbaseStats.attackSO != null)
         {
-            CharacterSO = Instantiate(CharacterbaseStats.statInfo);
+            attackSO = Instantiate(CharacterbaseStats.attackSO);
         }
-
-        CurrentStats = new CharacterStat { statInfo = CharacterSO };
+        CurrentStats = new CharacterStat { attackSO = attackSO };
+        CurrentStats.maxHp = CharacterbaseStats.maxHp;
+        CurrentStats.speed = CharacterbaseStats.speed;
+        //������ ���ݵ鵵 �����ؾ� ��
     }
+
+    //private void UpdateCharacterStats()
+    //{
+    //    CharacterStatSO CharacterSO = null;
+    //    if (CharacterbaseStats.statInfo != null)
+    //    {
+    //        CharacterSO = Instantiate(CharacterbaseStats.statInfo);
+    //    }
+
+    //    CurrentStats = new CharacterStat { statInfo = CharacterSO };
+    //}
 }
