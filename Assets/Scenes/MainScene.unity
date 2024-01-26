@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 16031133}
   - component: {fileID: 16031134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 389807485}
   - component: {fileID: 389807487}
   - component: {fileID: 389807486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752007009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 882550178}
   - component: {fileID: 882550177}
   - component: {fileID: 882550176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -808,7 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1292196153}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
