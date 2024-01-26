@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4cffe055e5a6d42be8c10e5b9d4cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRange: 15
+  followRange: 150
   shootRange: 10
 --- !u!114 &2734337373131720048
 MonoBehaviour:
@@ -228,12 +228,12 @@ MonoBehaviour:
   baseStats:
     type: 2
     statsChangeType: 2
-    maxHealth: 0
+    maxHealth: 5
     speed: 2
-    characterName: 
-    info: 
-    lv: 0
-    exp: 0
+    characterName: Girl
+    info: null
+    lv: 2
+    exp: 5
     fullExp: 0
     attackSO: {fileID: 11400000, guid: d0a4f0e5a13020d469cadea8edb823f3, type: 2}
   statsModifiers: []
