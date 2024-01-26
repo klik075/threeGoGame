@@ -256,6 +256,9 @@ MonoBehaviour:
   - tag: Spit
     prefeb: {fileID: 4813430753002415848, guid: a79e8bcad63b64b82a9f8c7656c492bf, type: 3}
     size: 20
+  - tag: Bubble
+    prefeb: {fileID: 2630841758085953669, guid: 925ed032964d16a428ec8e7b88ce3b03, type: 3}
+    size: 10
 --- !u!114 &318542309
 MonoBehaviour:
   m_ObjectHideFlags: 0
