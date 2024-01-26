@@ -16,7 +16,7 @@ public class EnemyController : CharacterController
         gameManager = GameManager.instance;
         ClosestTarget = gameManager.Player;
     }
-    protected virtual void FixedUpdate()
+    protected override void FixedUpdate()
     { 
         base.FixedUpdate();
     }

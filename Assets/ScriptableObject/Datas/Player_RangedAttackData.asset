@@ -27,4 +27,3 @@ MonoBehaviour:
   spread: 4
   numberofProjectilesPerShot: 1
   multipleProjectilesAngel: 7
-  projectileColor: {r: 1, g: 1, b: 1, a: 0}
