@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    private ProjectileManager _projectileManager;
     private CharacterController _controller;
 
     [SerializeField] private Transform projectileSpawnPosition;
     private Vector2 _aimDirection = Vector2.right;
-
-    public GameObject testPrefab; // 추후삭.
 
     private void Awake()
     {
@@ -19,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _projectileManager = ProjectileManager.instance;
         _controller.OnAttackEvent += OnShoot;
         _controller.OnLookEvent += OnAim;
     }
@@ -48,21 +48,19 @@ public class PlayerShooting : MonoBehaviour
 
     private void CreateProjectile(RangedAttackData rangedAttackData, float angle) // RangedAttackData rangedAttackData, float angle
     {
-        Instantiate(testPrefab, projectileSpawnPosition.position, Quaternion.identity); // 추후삭제
+        _projectileManager.ShootBullet(
+            projectileSpawnPosition.position,
+            RotateVector2(_aimDirection, angle),
+            rangedAttackData
+            );
+        //if (shootingClip)
+        //    SoundManager.PlayClip(shootingClip);
     }
-    //{
-    //    _projectileManager.ShootBullet(
-    //        projectileSpawnPosition.position,
-    //        RotateVector2(_aimDirection, angle),
-    //        rangedAttackData
-    //        );
-    //    if (shootingClip)
-    //        SoundManager.PlayClip(shootingClip);
-    //}
 
-    // Update is called once per frame
-    void Update()
+    private static Vector2 RotateVector2(Vector2 v, float degree)
     {
-
+        return Quaternion.Euler(0, 0, degree) * v;
     }
+
+
 }

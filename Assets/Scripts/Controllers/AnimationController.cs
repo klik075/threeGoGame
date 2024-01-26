@@ -17,7 +17,7 @@ public class AnimationController : Animations
 
     private void Start()
     {
-        controller.OnAttackEvent += Attacking;
+        //controller.OnAttackEvent += Attacking;
         controller.OnMoveEvent += Move;
     }
     

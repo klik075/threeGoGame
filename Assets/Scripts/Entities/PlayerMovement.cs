@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         _controller.OnMoveEvent += Move;
