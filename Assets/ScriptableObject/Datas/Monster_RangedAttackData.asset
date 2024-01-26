@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Monster_RangedAttackData
   m_EditorClassIdentifier: 
   size: 1
-  delay: 0.5
+  delay: 2
   power: 2
-  speed: 10
+  speed: 5
   target:
     serializedVersion: 2
     m_Bits: 128
@@ -27,4 +27,3 @@ MonoBehaviour:
   spread: 4
   numberofProjectilesPerShot: 1
   multipleProjectilesAngel: 7
-  projectileColor: {r: 0.2991723, g: 0.68093914, b: 0.7830189, a: 0}
