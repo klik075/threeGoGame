@@ -28,28 +28,25 @@ public class PlayerShooting : MonoBehaviour
         _aimDirection = newAimDirection;
     }
 
-    private void OnShoot(AttackSO attackSO) 
+    private void OnShoot(AttackSO attackSO)
     {
+        RangedAttackData rangedAttackData = attackSO as RangedAttackData;
+        float projectilesAngleSpace = rangedAttackData.multipleProjectilesAngel;
+        int numberOfProjextilesPerShot = rangedAttackData.numberofProjectilesPerShot;
+        // 캐릭터가 발사하는 각도 부채꼴 모양 위로 올려줌 ?? 꺾어줌 ??  뭐 그런느낌 ...
+        float minAngle = -(numberOfProjextilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel;
+
+        for (int i = 0; i<numberOfProjextilesPerShot; i++) // 반복문 으로 여러개 생
         {
-            RangedAttackData rangedAttackData = attackSO as RangedAttackData;
-            float projectilesAngleSpace = rangedAttackData.multipleProjectilesAngel;
-            int numberOfProjextilesPerShot = rangedAttackData.numberofProjectilesPerShot;
-            
-            float minAngle = -(numberOfProjextilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel;
+            float angle = minAngle + projectilesAngleSpace * i; // 각도계산  
+            float randomSpread = Random.Range(-rangedAttackData.spread, rangedAttackData.spread);
+            angle += randomSpread;
 
-            for (int i = 0; i < numberOfProjextilesPerShot; i++) 
-            {
-                float angle = minAngle + projectilesAngleSpace * i; 
-                float randomSpread = Random.Range(-rangedAttackData.spread, rangedAttackData.spread);
-                angle += randomSpread;
-
-                CreateProjectile(rangedAttackData, angle);
-            }
+            CreateProjectile(rangedAttackData, angle);
         }
     }
-    
 
-    private void CreateProjectile(RangedAttackData rangedAttackData, float angle) 
+    private void CreateProjectile(RangedAttackData rangedAttackData, float angle) // RangedAttackData rangedAttackData, float angle
     {
         _projectileManager.ShootBullet(
             projectileSpawnPosition.position,
