@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Transform Player { get; private set; }
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] GameObject playerobject;
-    [SerializeField] GameObject enemyprefab;
+    [SerializeField] private GameObject playerobject;
+    public PrefabManager prefabs;
     
     private void Awake()
     {
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         Time.timeScale = 1f;
         InvokeRepeating("makeEnemy", 0.0f, 1.0f);
 
@@ -35,18 +36,18 @@ public class GameManager : MonoBehaviour
     {
         if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv==1)
         {
-            GameObject enemyInstance = Instantiate(enemyprefab);
-            float x = Random.Range(0f, 0f);
-            float y = 0f;
+            GameObject enemyInstance = Instantiate(prefabs.Enemy1Prefab);
+            float x = Random.Range(-5f, 5f);
+            float y = 8f;
             enemyInstance.transform.position = new Vector3(x, y, 0);
         }
         else if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv == 2)
         {
-            Instantiate(enemyprefab);
+            Instantiate(prefabs.Enemy2Prefab);
         }
         else
         {
-            Instantiate(enemyprefab);
+            Instantiate(prefabs.Enemy2Prefab);
         }
 
     }
