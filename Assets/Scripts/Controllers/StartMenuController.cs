@@ -21,6 +21,7 @@ public class StartMenuController : MonoBehaviour
         // TODO : 캐릭터 생성
 
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("MainScene");
+        //SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("SampleScene_SongSanghwa");
     }
 }

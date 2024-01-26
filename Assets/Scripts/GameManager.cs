@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+public enum GameEndType
+{
+    GameClear,
+    GameOver
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
