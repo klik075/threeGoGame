@@ -17,11 +17,11 @@ public class AnimationController : Animations
 
     private void Start()
     {
-        //controller.OnAttackEvent += Attacking;
+        controller.OnAttackEvent += Attacking;
         controller.OnMoveEvent += Move;
     }
     
-    private void Attacking(AttackSO attackSO)
+    private void Attacking(AttackSO obj)
     {
         animator.SetTrigger(Attack);
     }
