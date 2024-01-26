@@ -40,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyKnockback(Transform other, float power, float duration)
     {
         knockbackDuration = duration;
-        _knockback = -(other.position - transform.position).normalized * power; 
+        _knockback = -(other.position - transform.position).normalized * power;  //넉백의 벡터는 1 * power 상대를 바라보는 반대 방향으로 넉백
     }
     private void ApplyMovement(Vector2 direction)
     {
         direction = direction * _stats.CurrentStats.speed;
-        if (knockbackDuration > 0.0f)
+        if (knockbackDuration > 0.0f) //넉백 시간이 있다면 
         {
-            direction += _knockback;
+            direction += _knockback; //넉백 처리
         }
         _rigidbody.velocity = direction;
     }
