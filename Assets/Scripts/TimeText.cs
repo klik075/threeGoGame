@@ -19,7 +19,7 @@ public class TimeText : MonoBehaviour
     void Start()
     {
         timeManager = TimeManager.timeIns;
-        timeManager.StartTimer();
+        //timeManager.StartTimer();
     }
 
     // Update is called once per frame
