@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 7254322130555916194}
   - component: {fileID: 2584172572956038726}
   - component: {fileID: 8739901588283419108}
+  - component: {fileID: 2734337373131720048}
   m_Layer: 6
   m_Name: Girl
   m_TagString: Enemy
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRange: 0
+  followRange: 96.8
   targetTag: Player
   characterRenderer: {fileID: 3514287878005335335}
 --- !u!114 &8739901588283419108
@@ -222,6 +223,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050e63ae56fe84266b28c37dcaf17999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2734337373131720048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971079961206589048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2113da429a328b45888307af7b46113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterbaseStats:
+    Charactertype: 2
+    statsChangeType: 2
+    name: Girl
+    info: 
+    lv: 2
+    exp: 0
+    fullExp: 0
+    hp: 0
+    maxHp: 0
+    speed: 2
+    attackSO: {fileID: 11400000, guid: d0a4f0e5a13020d469cadea8edb823f3, type: 2}
+  CstatsModifier: []
 --- !u!1 &2995788257759012212
 GameObject:
   m_ObjectHideFlags: 0

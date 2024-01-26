@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 6364291962798230044}
   - component: {fileID: 4977200054482615792}
   - component: {fileID: 859616728217314583}
+  - component: {fileID: 123107583962024604}
   m_Layer: 6
   m_Name: Man
   m_TagString: Enemy
@@ -329,3 +330,28 @@ MonoBehaviour:
   followRange: 39.8
   targetTag: Player
   characterRenderer: {fileID: 341041702043084659}
+--- !u!114 &123107583962024604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2113da429a328b45888307af7b46113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterbaseStats:
+    Charactertype: 3
+    statsChangeType: 2
+    name: Man
+    info: 
+    lv: 2
+    exp: 0
+    fullExp: 0
+    hp: 0
+    maxHp: 0
+    speed: 3
+    attackSO: {fileID: 11400000, guid: 1d991a7c6103a78459e65e99c108671c, type: 2}
+  CstatsModifier: []

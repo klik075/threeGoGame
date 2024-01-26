@@ -29,7 +29,6 @@ public class CharacterStat
     public float exp;
     public float fullExp;
     public float hp;
-    public float attack;
     [Range(1, 100)] public float maxHp;
     [Range(1f, 20f)] public float speed;
     public AttackSO attackSO;

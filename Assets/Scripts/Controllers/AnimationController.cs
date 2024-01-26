@@ -21,7 +21,7 @@ public class AnimationController : Animations
         controller.OnMoveEvent += Move;
     }
     
-    private void Attacking()
+    private void Attacking(AttackSO attackSO)
     {
         animator.SetTrigger(Attack);
     }
