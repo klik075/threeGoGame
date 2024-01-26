@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public enum StatsChangeType
     Override
 }
 
+[Serializable]
 public class CharacterStat
 {
     public CharacterType Charactertype;
@@ -30,7 +32,5 @@ public class CharacterStat
     public float attack;
     [Range(1, 100)] public float maxHp;
     [Range(1f, 20f)] public float speed;
-    
-
     public AttackSO attackSO;
 }
