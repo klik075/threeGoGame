@@ -15,18 +15,19 @@ public class GameManager : MonoBehaviour
     public Transform Player { get; private set; }
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private GameObject playerobject;
+    [SerializeField] private GameObject map;
     public PrefabManager prefabs;
     
     private void Awake()
     {
         instance = this;
         Player = GameObject.FindGameObjectWithTag(playerTag).transform;
-
+        playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
+        Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
     }
 
     private void Start()
-    {
-        
+    { 
         Time.timeScale = 1f;
         InvokeRepeating("makeEnemy", 0.0f, 1.0f);
 
