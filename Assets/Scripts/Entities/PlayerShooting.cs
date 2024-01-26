@@ -18,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Debug.Log("start");
         _projectileManager = ProjectileManager.instance;
         _controller.OnAttackEvent += OnShoot;
         _controller.OnLookEvent += OnAim;
@@ -37,8 +38,10 @@ public class PlayerShooting : MonoBehaviour
             
             float minAngle = -(numberOfProjextilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel;
 
-            for (int i = 0; i < numberOfProjextilesPerShot; i++) 
+            //Debug.LogError(numberOfProjextilesPerShot);
+            for (int i = 0; i < numberOfProjextilesPerShot; i++)    
             {
+
                 float angle = minAngle + projectilesAngleSpace * i; 
                 float randomSpread = Random.Range(-rangedAttackData.spread, rangedAttackData.spread);
                 angle += randomSpread;
