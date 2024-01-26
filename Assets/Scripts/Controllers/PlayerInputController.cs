@@ -7,9 +7,9 @@ public class PlayerInputController : CharacterController
 {
     private Camera _camera;
 
-    protected void Awake() // todo override 넣어주기 
+    protected override void Awake() 
     {
-        //base.Awake(); 
+        base.Awake(); 
         _camera = Camera.main;
     }
 

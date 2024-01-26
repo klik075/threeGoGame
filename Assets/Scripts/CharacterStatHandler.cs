@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CharacterStatHandler : MonoBehaviour
 {
-    [SerializeField] private CharacterStat CharacterbaseStats;
+    [SerializeField] private CharacterStat baseStats;
     public CharacterStat CurrentStats { get; private set; }
 
-    public List<CharacterStat> CstatsModifier = new List<CharacterStat>();
+    public List<CharacterStat> statsModifiers = new List<CharacterStat>();
 
     private void Awake()
     {
@@ -16,27 +16,26 @@ public class CharacterStatHandler : MonoBehaviour
     }
     // Start is called before the first frame update
 
-    //private void UpdateCharacterStats() //수정 고려
-    //{
-    //    AttackSO attackSO = null;
-    //    if (baseStats.attackSO != null)
-    //    {
-    //        attackSO = Instantiate(baseStats.attackSO);
-    //    }
-    //    currentStats = new CharacterStat { attackSO = attackSO };
-    //    currentStats.maxHp = baseStats.maxHp;
-    //    currentStats.speed = baseStats.speed;
-    //    //������ ���ݵ鵵 �����ؾ� ��
-    //}
-
-    private void UpdateCharacterStats()
+    private void UpdateCharacterStats() //수정 고려
     {
-        CharacterStatSO CharacterSO = null;
-        if (CharacterbaseStats.statInfo != null)
+        AttackSO attackSO = null;
+        if (baseStats.attackSO != null)
         {
-            CharacterSO = Instantiate(CharacterbaseStats.statInfo);
+            attackSO = Instantiate(baseStats.attackSO);
         }
-
-        CurrentStats = new CharacterStat { statInfo = CharacterSO };
+        CurrentStats = new CharacterStat { attackSO = attackSO };
+        CurrentStats.maxHealth = baseStats.maxHealth;
+        CurrentStats.speed = baseStats.speed;
     }
+
+    //private void UpdateCharacterStats()
+    //{
+    //    CharacterStatSO CharacterSO = null;
+    //    if (CharacterbaseStats.statInfo != null)
+    //    {
+    //        CharacterSO = Instantiate(CharacterbaseStats.statInfo);
+    //    }
+
+    //    CurrentStats = new CharacterStat { statInfo = CharacterSO };
+    //}
 }

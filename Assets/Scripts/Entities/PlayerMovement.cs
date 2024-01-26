@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController _controller;
+    private CharacterStatHandler _stats;
 
     private Vector2 _movementDirection = Vector2.zero;
     private Rigidbody2D _rigidbody;
@@ -12,11 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
-        //_stats = GetComponent<CharacterStatsHandler>();
+        _stats = GetComponent<CharacterStatHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         _controller.OnMoveEvent += Move;
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * 5;//_stats.CurrentStats.speed;
+        direction = direction * _stats.CurrentStats.speed;
         //if (knockbackDuration > 0.0f)
         //{
         //    direction += _knockback;

@@ -9,18 +9,30 @@ public enum CharacterType
     Player2
 }
 
+public enum StatsChangeType
+{
+    Add,
+    Multiple,
+    Override,
+}
+
 [Serializable]
 public class CharacterStat
 {
     public CharacterType type;
-    public float maxHp;
-    public float speed;
+    [Range(1, 100)] public int maxHealth;
+    [Range(1f, 20f)] public float speed;
     public CharacterStatSO statInfo;
     ////////////////////////////////
-    public string characterName; //위 아래 고려
+    public string characterName; //?? ???? ????
     public string info;
     public int lv;
     public float exp;
     public float fullExp;
     public AttackSO attackSO;
+
+    public StatsChangeType statsChangeType;
+    
+
+   
 }
