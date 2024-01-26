@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangeEnemyController : EnemyController
 {
-    [SerializeField] private float followRange = 15f; //플레이어 인지 범위
+    [SerializeField] private float followRange = 1000f; //플레이어 인지 범위
     [SerializeField] private float shootRange = 10f; //사정거리
 
     protected override void FixedUpdate()

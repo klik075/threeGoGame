@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Bits: 128
   isOnKnockback: 1
   knockbackPower: 5
-  knockbackTime: 0.1
+  knockbackTime: 0.2
   bulletNameTag: Bubble
   duration: 5
   spread: 4

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Monster_ContactAttackData
   m_EditorClassIdentifier: 
   size: 1
-  delay: 0.15
+  delay: 0.5
   power: 1
   speed: 5
   target:
     serializedVersion: 2
     m_Bits: 128
-  isOnKnockback: 0
-  knockbackPower: 0
-  knockbackTime: 0
+  isOnKnockback: 1
+  knockbackPower: 7
+  knockbackTime: 0.2
