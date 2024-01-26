@@ -5,25 +5,38 @@ using UnityEngine;
 
 public class CharacterStatHandler : MonoBehaviour
 {
-    [SerializeField] private CharacterStat baseStats;
-    public CharacterStat currentStats { get; private set; }
-    public List<CharacterStat> statssModifier = new List<CharacterStat>();
-    // Start is called before the first frame update
+    [SerializeField] private CharacterStat CharacterbaseStats;
+    public CharacterStat CurrentStats { get; private set; }
+
+    public List<CharacterStat> CstatsModifier = new List<CharacterStat>();
+
     private void Awake()
     {
         UpdateCharacterStats();
     }
+    // Start is called before the first frame update
+
+    //private void UpdateCharacterStats() //ìˆ˜ì • ê³ ë ¤
+    //{
+    //    AttackSO attackSO = null;
+    //    if (baseStats.attackSO != null)
+    //    {
+    //        attackSO = Instantiate(baseStats.attackSO);
+    //    }
+    //    currentStats = new CharacterStat { attackSO = attackSO };
+    //    currentStats.maxHp = baseStats.maxHp;
+    //    currentStats.speed = baseStats.speed;
+    //    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ýµéµµ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½
+    //}
 
     private void UpdateCharacterStats()
     {
-        AttackSO attackSO = null;
-        if (baseStats.attackSO != null)
+        CharacterStatSO CharacterSO = null;
+        if (CharacterbaseStats.statInfo != null)
         {
-            attackSO = Instantiate(baseStats.attackSO);
+            CharacterSO = Instantiate(CharacterbaseStats.statInfo);
         }
-        currentStats = new CharacterStat { attackSO = attackSO };
-        currentStats.maxHp = baseStats.maxHp;
-        currentStats.speed = baseStats.speed;
-        //³ª¸ÓÁö ½ºÅÝµéµµ º¹»çÇØ¾ß ÇÔ
+
+        CurrentStats = new CharacterStat { statInfo = CharacterSO };
     }
 }
