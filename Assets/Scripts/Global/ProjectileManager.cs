@@ -6,12 +6,10 @@ public class ProjectileManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _impactParticleSystem;
 
-    
+
     public static ProjectileManager instance;
 
-    //private ObjectPool objectPool;
-
-    [SerializeField] private GameObject testObj; // for test
+    private ObjectPool objectPool;
 
     private void Awake()
     {
@@ -20,13 +18,13 @@ public class ProjectileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //objectPool = GetComponent<ObjectPool>();
+        objectPool = GetComponent<ObjectPool>();
     }
 
     // 미사일 만드는 함수구현
     public void ShootBullet(Vector2 startPosition, Vector2 direction, RangedAttackData attackData)
     {
-        GameObject obj = Instantiate(testObj); // objectPool.SpawnFromPool(attackData.bulletNameTag);
+        GameObject obj = objectPool.SpawnFromPool(attackData.bulletNameTag);  
 
         obj.transform.position = startPosition;
         RangedAttackController attackController = obj.GetComponent<RangedAttackController>();
