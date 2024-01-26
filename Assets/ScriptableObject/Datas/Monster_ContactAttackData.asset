@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2182fa8deb52dc8459c59cd40556cb65, type: 3}
   m_Name: Monster_ContactAttackData
   m_EditorClassIdentifier: 
-  size: 0
-  delay: 0
-  power: 0
-  speed: 0
+  size: 1
+  delay: 0.15
+  power: 1
+  speed: 5
   target:
     serializedVersion: 2
     m_Bits: 128
