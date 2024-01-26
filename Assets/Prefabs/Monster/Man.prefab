@@ -206,6 +206,9 @@ GameObject:
   - component: {fileID: 4977200054482615792}
   - component: {fileID: 859616728217314583}
   - component: {fileID: 123107583962024604}
+  - component: {fileID: 2544671638963576856}
+  - component: {fileID: 6259369738672518593}
+  - component: {fileID: 1966589492814298960}
   m_Layer: 6
   m_Name: Man
   m_TagString: Enemy
@@ -227,7 +230,7 @@ Transform:
   m_Children:
   - {fileID: 6213495509698050791}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &4882080227575143030
 CircleCollider2D:
@@ -327,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRange: 100
+  followRange: 1000
   targetTag: Player
   characterRenderer: {fileID: 341041702043084659}
 --- !u!114 &123107583962024604
@@ -354,3 +357,73 @@ MonoBehaviour:
     fullExp: 0
     attackSO: {fileID: 11400000, guid: 1d991a7c6103a78459e65e99c108671c, type: 2}
   statsModifiers: []
+--- !u!114 &2544671638963576856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cf7ef9ebd8af746922da52614ae5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &6259369738672518593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50c09bca3ac610449e89b19a20e3792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1966589492814298960
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176525377168267835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
