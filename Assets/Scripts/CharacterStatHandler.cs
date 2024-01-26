@@ -24,7 +24,7 @@ public class CharacterStatHandler : MonoBehaviour
            attackSO = Instantiate(baseStats.attackSO);
         }
         CurrentStats = new CharacterStat { attackSO = attackSO };
-        CurrentStats.maxHp = baseStats.maxHp;
+        CurrentStats.maxHealth = baseStats.maxHealth;
         CurrentStats.speed = baseStats.speed;
         //추가작업
     }
