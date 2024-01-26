@@ -227,7 +227,7 @@ Transform:
   m_Children:
   - {fileID: 6213495509698050791}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &4882080227575143030
 CircleCollider2D:
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff628a7bdd2b6b44fa70b04a1aa2084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followRange: 39.8
+  followRange: 100
   targetTag: Player
   characterRenderer: {fileID: 341041702043084659}
 --- !u!114 &123107583962024604
@@ -345,12 +345,12 @@ MonoBehaviour:
   baseStats:
     type: 3
     statsChangeType: 2
-    maxHealth: 0
+    maxHealth: 15
     speed: 3
-    characterName: 
-    info: 
-    lv: 0
-    exp: 0
+    characterName: Man
+    info: null
+    lv: 1
+    exp: 2
     fullExp: 0
     attackSO: {fileID: 11400000, guid: 1d991a7c6103a78459e65e99c108671c, type: 2}
   statsModifiers: []

@@ -26,6 +26,11 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats = new CharacterStat { attackSO = attackSO };
         CurrentStats.maxHealth = baseStats.maxHealth;
         CurrentStats.speed = baseStats.speed;
+        CurrentStats.characterName = baseStats.characterName;
+        CurrentStats.exp = baseStats.exp;
+        CurrentStats.lv = baseStats.lv;
+        CurrentStats.info = baseStats.info;
+        CurrentStats.fullExp = baseStats.fullExp;
         //추가작업
     }
     
