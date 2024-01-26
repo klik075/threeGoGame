@@ -125,7 +125,7 @@ Transform:
   - {fileID: 4571876572614290663}
   - {fileID: 910963847312054640}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8269518295967609637
 Rigidbody2D:
@@ -234,8 +234,8 @@ MonoBehaviour:
     speed: 2
     characterName: Girl
     info: null
-    lv: 2
-    exp: 5
+    lv: 1
+    exp: 0
     fullExp: 0
     attackSO: {fileID: 11400000, guid: d0a4f0e5a13020d469cadea8edb823f3, type: 2}
   statsModifiers: []
