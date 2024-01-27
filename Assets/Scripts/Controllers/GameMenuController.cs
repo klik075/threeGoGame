@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameMenuController : MonoBehaviour
 {
     private TimeManager _timeManager;
+    public static GameMenuController menu;
     [SerializeField] private GameObject gameEndPopup;
     [SerializeField] private Text surviveTimeText;
     [SerializeField] private Text timeText;
@@ -20,6 +21,7 @@ public class GameMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        menu = this;
         _timeManager = TimeManager.timeIns;
         _timeManager.OnGameEnd += GameEnd;      // 게임 종료 이벤트 구독하기
         gameEndPopup.SetActive(false);      // 게임종료 팝업 창 비활성화 시켜놓기
@@ -43,7 +45,7 @@ public class GameMenuController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void GameEnd(GameEndType gameEndType)
+    public void GameEnd(GameEndType gameEndType)
     {
         // 게임 종료 시 팝업창 띄우기
         switch (gameEndType)

@@ -13,7 +13,6 @@ public class DisappearOnDeath : MonoBehaviour
         _healthSystem = GetComponent<HealthSystem>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _healthSystem.OnDeath += OnDeath; //등록
-        _healthSystem.OnDeath += OnPlayerDeath;
     }
 
     void OnDeath()
@@ -27,19 +26,16 @@ public class DisappearOnDeath : MonoBehaviour
             renderer.color = color;
         }
 
+        if (player == true) //죽는 객체가 player라면 gameManager에서 결과창 함수 호출
+        {
+            Time.timeScale = 0.0f;
+            GameManager.instance.PopUpEnd();
+        }
+
         foreach (Behaviour component in transform.GetComponentsInChildren<Behaviour>())//
         {
             component.enabled = false;
         }
-
         Destroy(gameObject, 2f); // 2초 후 삭제
-    }
-
-    void OnPlayerDeath()//OnDeath라고 하는 이벤트에서 OnDeath()와 함께 호출, 죽는 객체가 player라면 gameManager에서 결과창 함수 호출
-    {
-        if(player == true)
-        {
-            Invoke("GameManager.instance.PopUpEnd()", 3f);
-        }
     }
 }

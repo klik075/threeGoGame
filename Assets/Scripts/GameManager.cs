@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void PopUpEnd()//마지막에 결과 표시
     {
-
+        GameMenuController.menu.GameEnd(GameEndType.GameOver);
     }
 
     public void ChangeHpBar(float attack)//받은 데미지에 따른 체력바 UI 변경
