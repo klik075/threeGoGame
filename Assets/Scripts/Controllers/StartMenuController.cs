@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StartMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject startGameMenu;
-    [SerializeField] private Text text;
+    [SerializeField] private Text textName;
     [SerializeField] Button gameTitlePlayButton;
     [SerializeField] Button StartGameMenuPlayButton;
 
@@ -19,7 +19,7 @@ public class StartMenuController : MonoBehaviour
 
     public void OnClickStartGameMenuPlayButton()
     {
-        string temp = text.ToString();
+        string temp = textName.text.ToString();
         // TODO : 캐릭터 생성
         PlayerPrefs.SetString("CharacterName", temp);
         Time.timeScale = 1.0f;

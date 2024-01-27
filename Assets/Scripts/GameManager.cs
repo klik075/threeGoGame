@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameEndType
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Transform Player { get; private set; }
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private GameObject playerobject;
+    [SerializeField] private Text textname;
     [SerializeField] private GameObject map;
     public PrefabManager prefabs;
     
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         Player = GameObject.FindGameObjectWithTag(playerTag).transform;
         playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
+        textname.text = playerobject.GetComponent<CharacterStatHandler>().name;
         Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
     }
 
