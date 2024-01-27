@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RangedAttackController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private LayerMask levelCollisionLayer;
+    [SerializeField] private bool isTargetPlayer;
     private RangedAttackData _attackData;
     private float _currentDuration;
     private Vector2 _direction;
@@ -56,6 +58,7 @@ public class RangedAttackController : MonoBehaviour
             if (healthSystem != null) // 널이 아니면
             {
                 healthSystem.ChangeHealth(-_attackData.power); //체력을 자신의 공격력 만큼 닳게 한다.
+                
                 if (_attackData.isOnKnockback)//넉백이 있다면
                 {
                     PlayerMovement movement = collision.GetComponent<PlayerMovement>();//상대방의 Move 컴포넌트를 가져오고
@@ -64,6 +67,13 @@ public class RangedAttackController : MonoBehaviour
                         movement.ApplyKnockback(transform, _attackData.knockbackPower, _attackData.knockbackTime); //상대에게 넉백 적용
                     }
                 }
+
+                //타깃이 player라면 gamemanager에서 Hp바가 변경되는 작업 선언
+                if(isTargetPlayer == true)
+                {
+                    GameManager.instance.ChangeHpBar(_attackData.power);
+                }
+                
             }
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);//투사체 삭제
         }

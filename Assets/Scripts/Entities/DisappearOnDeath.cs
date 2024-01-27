@@ -5,6 +5,7 @@ using UnityEngine;
 public class DisappearOnDeath : MonoBehaviour
 {
     private HealthSystem _healthSystem;
+    [SerializeField] private bool player = false;//script가 연결된 객체가 player 여부 체크
     private Rigidbody2D _rigidbody;
 
     private void Start()
@@ -12,6 +13,7 @@ public class DisappearOnDeath : MonoBehaviour
         _healthSystem = GetComponent<HealthSystem>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _healthSystem.OnDeath += OnDeath; //등록
+        _healthSystem.OnDeath += OnPlayerDeath;
     }
 
     void OnDeath()
@@ -31,5 +33,13 @@ public class DisappearOnDeath : MonoBehaviour
         }
 
         Destroy(gameObject, 2f); // 2초 후 삭제
+    }
+
+    void OnPlayerDeath()//OnDeath라고 하는 이벤트에서 OnDeath()와 함께 호출, 죽는 객체가 player라면 gameManager에서 결과창 함수 호출
+    {
+        if(player == true)
+        {
+            Invoke("GameManager.instance.PopUpEnd()", 3f);
+        }
     }
 }

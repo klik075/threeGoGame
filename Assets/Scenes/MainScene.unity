@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   playerobject: {fileID: 882550175}
+  playerHpBar: {fileID: 1948312322}
   textname: {fileID: 1401108141}
   map: {fileID: 5350165383319599916, guid: 45e3e84c45416b240951f3261f0012fe, type: 3}
   prefabs: {fileID: 1947876191}
@@ -574,6 +575,7 @@ GameObject:
   - component: {fileID: 882550178}
   - component: {fileID: 882550177}
   - component: {fileID: 882550176}
+  - component: {fileID: 882550187}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -621,7 +623,7 @@ MonoBehaviour:
   baseStats:
     type: 0
     statsChangeType: 2
-    maxHealth: 0
+    maxHealth: 10
     speed: 5
     characterName: 
     info: 
@@ -682,6 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9ec6b93132f43339481816866200bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minCameraBoundary: {x: -5, y: -5}
+  maxCameraBoundary: {x: 5, y: 5}
 --- !u!114 &882550183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,6 +805,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882550187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882550175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50c09bca3ac610449e89b19a20e3792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 1
 --- !u!1 &1292196152
 GameObject:
   m_ObjectHideFlags: 0

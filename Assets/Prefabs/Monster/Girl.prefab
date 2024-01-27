@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followRange: 1000
-  shootRange: 2
+  shootRange: 4
 --- !u!114 &2734337373131720048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50c09bca3ac610449e89b19a20e3792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameObject: {fileID: 0}
 --- !u!1 &2995788257759012212
 GameObject:
   m_ObjectHideFlags: 0
