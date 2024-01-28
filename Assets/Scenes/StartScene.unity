@@ -1517,5 +1517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameMenu: {fileID: 161129025}
+  textName: {fileID: 1339772670}
   gameTitlePlayButton: {fileID: 427655180}
   StartGameMenuPlayButton: {fileID: 1487923196}
