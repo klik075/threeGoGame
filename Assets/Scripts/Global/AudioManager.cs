@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip bgMusic;     // πË∞Ê¿Ωæ«
     [SerializeField] private AudioClip startSceneMusic;
+
+    [SerializeField] private AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -29,6 +32,11 @@ public class AudioManager : MonoBehaviour
         }
         else
             audioSource.clip = bgMusic;
+
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            audioMixer.SetFloat("BGM", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
+        }
 
         audioSource.Play();
     }
