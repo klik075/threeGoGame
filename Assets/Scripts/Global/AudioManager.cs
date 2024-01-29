@@ -35,7 +35,6 @@ public class AudioManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Volume"))
         {
-            Debug.Log(PlayerPrefs.GetFloat("Volume"));
             audioMixer.SetFloat("BGM", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
         }
 
