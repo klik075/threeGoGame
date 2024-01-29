@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 1000
   targetTag: Player
+  isTargetPlayer: 1
   characterRenderer: {fileID: 341041702043084659}
 --- !u!114 &123107583962024604
 MonoBehaviour:
@@ -348,7 +349,7 @@ MonoBehaviour:
   baseStats:
     type: 3
     statsChangeType: 2
-    maxHealth: 15
+    maxHealth: 5
     speed: 3
     characterName: Man
     info: null
