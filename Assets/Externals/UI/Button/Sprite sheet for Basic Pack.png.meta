@@ -1580,7 +1580,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_70
+      name: ToggleOn
       rect:
         serializedVersion: 2
         x: 434
@@ -1622,7 +1622,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_72
+      name: ToggleOff
       rect:
         serializedVersion: 2
         x: 498
@@ -1916,7 +1916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_86
+      name: OKButton
       rect:
         serializedVersion: 2
         x: 837
@@ -6757,6 +6757,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       HomeButton: -1772342894
+      OKButton: -7440769
       SettingButton: 2083996603
       Sprite sheet for Basic Pack_0: -994189171
       Sprite sheet for Basic Pack_1: -1623162056
@@ -7042,9 +7043,7 @@ TextureImporter:
       Sprite sheet for Basic Pack_68: 554338657
       Sprite sheet for Basic Pack_69: -1497940293
       Sprite sheet for Basic Pack_7: 137383489
-      Sprite sheet for Basic Pack_70: 997360713
       Sprite sheet for Basic Pack_71: 1409144942
-      Sprite sheet for Basic Pack_72: -1219011601
       Sprite sheet for Basic Pack_73: -1096240366
       Sprite sheet for Basic Pack_74: -202265385
       Sprite sheet for Basic Pack_75: -1965555942
@@ -7057,7 +7056,6 @@ TextureImporter:
       Sprite sheet for Basic Pack_82: -1119248520
       Sprite sheet for Basic Pack_83: -52160146
       Sprite sheet for Basic Pack_85: 1462932359
-      Sprite sheet for Basic Pack_86: -7440769
       Sprite sheet for Basic Pack_87: -426349043
       Sprite sheet for Basic Pack_88: -1130804776
       Sprite sheet for Basic Pack_89: 916768357
@@ -7072,6 +7070,8 @@ TextureImporter:
       Sprite sheet for Basic Pack_97: -1927809799
       Sprite sheet for Basic Pack_98: -1726991647
       Sprite sheet for Basic Pack_99: 372083748
+      ToggleOff: -1219011601
+      ToggleOn: 997360713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
