@@ -16,7 +16,7 @@ public class HealthSystem : MonoBehaviour
     public event Action OnDeath;
     public event Action OnInvincibilityEnd;
 
-    public float CurrentHealth { get; private set; }
+    public float CurrentHealth { get; set; }
 
     public float MaxHealth => _statsHandler.CurrentStats.maxHealth;
 

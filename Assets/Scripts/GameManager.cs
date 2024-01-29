@@ -48,22 +48,12 @@ public class GameManager : MonoBehaviour
 
     void makeEnemy()//利 按眉 积己
     {
-        if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv==1)
-        {
-            int randomNumb = Random.Range(0, prefabs.EnemyNumber);
-            GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
-            int enemyLocationlist = Random.Range(0,6);
-            enemyInstance.transform.position = enemyLocation[enemyLocationlist];
-        }
-        else if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv == 2)
-        {
-            Instantiate(prefabs.Enemy2Prefab);
-        }
-        else
-        {
-            Instantiate(prefabs.Enemy2Prefab);
-        }
+        int randomNumb = Random.Range(0, prefabs.EnemyNumber);
+        GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
+        int enemyLocationlist = Random.Range(0, 6);
+        enemyInstance.transform.position = enemyLocation[enemyLocationlist];
 
+        enemyInstance.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power += playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv;
     }
 
     void EnemyLocationSet()
