@@ -9,6 +9,7 @@ public class AnimationController : Animations
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int IsHit = Animator.StringToHash("IsHit");
+    private static readonly int MonsterIsDead = Animator.StringToHash("MonsterIsDead");
 
     private HealthSystem _healthSystem;
 
@@ -47,5 +48,9 @@ public class AnimationController : Animations
     private void InvincibilityEnd()
     {
         animator.SetBool(IsHit, false);
+    }
+    public void MonsterDead()
+    {
+        animator.SetTrigger(MonsterIsDead);
     }
 }
