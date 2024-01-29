@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
     {
         if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv==1)
         {
-            GameObject enemyInstance = Instantiate(prefabs.Enemy1Prefab);
+            int randomNumb = Random.Range(0, prefabs.EnemyNumber);
+            GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
             int enemyLocationlist = Random.Range(0,6);
             enemyInstance.transform.position = enemyLocation[enemyLocationlist];
         }
