@@ -1097,7 +1097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_47
+      name: TempButton
       rect:
         serializedVersion: 2
         x: 709
@@ -7017,7 +7017,6 @@ TextureImporter:
       Sprite sheet for Basic Pack_44: -348673549
       Sprite sheet for Basic Pack_45: 1006354527
       Sprite sheet for Basic Pack_46: 344194269
-      Sprite sheet for Basic Pack_47: -393113458
       Sprite sheet for Basic Pack_48: -1901354784
       Sprite sheet for Basic Pack_49: 1527408722
       Sprite sheet for Basic Pack_5: -864960302
@@ -7070,6 +7069,7 @@ TextureImporter:
       Sprite sheet for Basic Pack_97: -1927809799
       Sprite sheet for Basic Pack_98: -1726991647
       Sprite sheet for Basic Pack_99: 372083748
+      TempButton: -393113458
       ToggleOff: -1219011601
       ToggleOn: 997360713
   mipmapLimitGroupName: 

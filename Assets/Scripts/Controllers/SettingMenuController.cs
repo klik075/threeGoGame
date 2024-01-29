@@ -37,6 +37,11 @@ public class SettingMenuController : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
+    public void OnClickGameExitButton()
+    {
+        Application.Quit();
+    }
+
     public void OnClickSettingConfirmButton()
     {
         Time.timeScale = 1f;
