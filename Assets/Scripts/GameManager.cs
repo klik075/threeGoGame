@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text textname;
     [SerializeField] private GameObject map;
     public PrefabManager prefabs;
+    public List<Vector3> enemyLocation = new List<Vector3>();
     
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
         textname.text = playerobject.GetComponent<CharacterStatHandler>().name;
         Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
+        EnemyLocationSet();
     }
 
     private void Start()
@@ -41,10 +43,10 @@ public class GameManager : MonoBehaviour
     {
         if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv==1)
         {
-            GameObject enemyInstance = Instantiate(prefabs.Enemy1Prefab);
-            float x = Random.Range(-5f, 5f);
-            float y = 8f;
-            enemyInstance.transform.position = new Vector3(x, y, 0);
+            int randomNumb = Random.Range(0, prefabs.EnemyNumber);
+            GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
+            int enemyLocationlist = Random.Range(0,6);
+            enemyInstance.transform.position = enemyLocation[enemyLocationlist];
         }
         else if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv == 2)
         {
@@ -55,6 +57,16 @@ public class GameManager : MonoBehaviour
             Instantiate(prefabs.Enemy2Prefab);
         }
 
+    }
+
+    void EnemyLocationSet()
+    {
+        enemyLocation.Add(new Vector3(-5f, 8f,0));
+        enemyLocation.Add(new Vector3(5f, 8f,0));
+        enemyLocation.Add(new Vector3(-8f, 0f,0));
+        enemyLocation.Add(new Vector3(8f, 0f,0));
+        enemyLocation.Add(new Vector3(-5f, -8f,0));
+        enemyLocation.Add(new Vector3(5f, -8f,0));
     }
 
     public void PopUpEnd()//마지막에 결과 표시
