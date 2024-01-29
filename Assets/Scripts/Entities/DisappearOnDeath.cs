@@ -7,6 +7,7 @@ public class DisappearOnDeath : MonoBehaviour
     private HealthSystem _healthSystem;
     [SerializeField] private bool player = false;//script가 연결된 객체가 player 여부 체크
     private Rigidbody2D _rigidbody;
+    [SerializeField] private GameObject _gameObject;
 
     private void Start()
     {
@@ -30,6 +31,11 @@ public class DisappearOnDeath : MonoBehaviour
         {
             Time.timeScale = 0.0f;
             GameManager.instance.PopUpEnd();
+        }
+        else
+        {
+            float exp = _gameObject.GetComponent<CharacterStatHandler>().CurrentStats.exp;
+            GameManager.instance.ExpChange(exp);
         }
 
         foreach (Behaviour component in transform.GetComponentsInChildren<Behaviour>())//

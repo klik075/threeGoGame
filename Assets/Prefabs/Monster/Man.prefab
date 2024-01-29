@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
+  _gameObject: {fileID: 7176525377168267835}
 --- !u!61 &1966589492814298960
 BoxCollider2D:
   m_ObjectHideFlags: 0
