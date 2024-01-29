@@ -8,8 +8,10 @@ public class ContactEnemyController : EnemyController
 {
     [SerializeField][Range(0f, 1000f)] private float followRange;
     [SerializeField] private string targetTag = "Player";
+    [SerializeField] private bool isTargetPlayer = true;
     private bool _isCollidingWithTarget;
 
+    private AttackSO _attackData;
     [SerializeField] private SpriteRenderer characterRenderer;
     private HealthSystem healthSystem;
     private HealthSystem _collidingTargetHealthSystem;
@@ -19,6 +21,7 @@ public class ContactEnemyController : EnemyController
         base.Start();
         healthSystem = GetComponent<HealthSystem>();
         healthSystem.OnDamage += OnDamage; //자신이 데미지를 받았을 때 처리 함수
+        _attackData = GetComponent<CharacterStatHandler>().CurrentStats.attackSO;
     }
 
     private void OnDamage()
@@ -79,6 +82,10 @@ public class ContactEnemyController : EnemyController
         if (attackSO.isOnKnockback && _collidingMovement != null)
         {
             _collidingMovement.ApplyKnockback(transform,attackSO.knockbackPower,attackSO.knockbackTime);
+        }
+        if (isTargetPlayer == true)
+        {
+            GameManager.instance.ChangeHpBar(_attackData.power);
         }
     }
 }
