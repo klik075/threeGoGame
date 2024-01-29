@@ -20,14 +20,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text textname;
     [SerializeField] private GameObject map;
     public PrefabManager prefabs;
-    
+    public List<Vector3> enemyLocation = new List<Vector3>();
+    private HealthSystem healthSystem;
+
     private void Awake()
     {
         instance = this;
         Player = GameObject.FindGameObjectWithTag(playerTag).transform;
+        healthSystem = Player.gameObject.GetComponent<HealthSystem>();
         playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
         textname.text = playerobject.GetComponent<CharacterStatHandler>().name;
         Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
+        EnemyLocationSet();
     }
 
     private void Start()
@@ -41,10 +45,10 @@ public class GameManager : MonoBehaviour
     {
         if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv==1)
         {
-            GameObject enemyInstance = Instantiate(prefabs.Enemy1Prefab);
-            float x = Random.Range(-5f, 5f);
-            float y = 8f;
-            enemyInstance.transform.position = new Vector3(x, y, 0);
+            int randomNumb = Random.Range(0, prefabs.EnemyNumber);
+            GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
+            int enemyLocationlist = Random.Range(0,6);
+            enemyInstance.transform.position = enemyLocation[enemyLocationlist];
         }
         else if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv == 2)
         {
@@ -57,6 +61,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void EnemyLocationSet()
+    {
+        enemyLocation.Add(new Vector3(-5f, 8f,0));
+        enemyLocation.Add(new Vector3(5f, 8f,0));
+        enemyLocation.Add(new Vector3(-8f, 0f,0));
+        enemyLocation.Add(new Vector3(8f, 0f,0));
+        enemyLocation.Add(new Vector3(-5f, -8f,0));
+        enemyLocation.Add(new Vector3(5f, -8f,0));
+    }
+
     public void PopUpEnd()//마지막에 결과 표시
     {
         GameMenuController.menu.GameEnd(GameEndType.GameOver);
@@ -64,9 +78,11 @@ public class GameManager : MonoBehaviour
 
     public void ChangeHpBar(float attack)//받은 데미지에 따른 체력바 UI 변경
     {
-        float maxHp = playerobject.GetComponent<HealthSystem>().MaxHealth;
-        playerHpBar.transform.localScale += new Vector3(-attack / maxHp, 0, 0);
-        if(playerHpBar.GetComponent<Transform>().localScale.x <= -1)
+        //float maxHp = playerobject.GetComponent<HealthSystem>().MaxHealth;
+        //playerHpBar.transform.localScale = new Vector3(-attack / maxHp, 0, 0);
+        float maxHp = healthSystem.MaxHealth;
+        playerHpBar.transform.localScale = new Vector3(-((maxHp - healthSystem.CurrentHealth) / maxHp), 1, 1);
+        if (playerHpBar.GetComponent<Transform>().localScale.x <= -1)
         {
             float y = playerHpBar.GetComponent<Transform>().localScale.y;
             float z = playerHpBar.GetComponent<Transform>().localScale.z;
