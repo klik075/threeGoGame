@@ -356,7 +356,7 @@ MonoBehaviour:
     lv: 1
     exp: 2
     fullExp: 0
-    attackSO: {fileID: 11400000, guid: 1d991a7c6103a78459e65e99c108671c, type: 2}
+    attackSO: {fileID: 11400000, guid: 4c40c21627c79f24fb2ed28d5db31a91, type: 2}
   statsModifiers: []
 --- !u!114 &2544671638963576856
 MonoBehaviour:
