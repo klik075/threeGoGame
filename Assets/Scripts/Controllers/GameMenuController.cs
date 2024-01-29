@@ -24,6 +24,7 @@ public class GameMenuController : MonoBehaviour
         menu = this;
         _timeManager = TimeManager.timeIns;
         _timeManager.OnGameEnd += GameEnd;      // 게임 종료 이벤트 구독하기
+        GameManager.instance.OnGameOver += GameEnd;
         gameEndPopup.SetActive(false);      // 게임종료 팝업 창 비활성화 시켜놓기
         gameClearText.SetActive(false);
         gameOverText.SetActive(false);

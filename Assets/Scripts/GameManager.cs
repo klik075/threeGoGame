@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour
     public PrefabManager prefabs;
     public List<Vector3> enemyLocation = new List<Vector3>();
     private HealthSystem healthSystem;
+
+    public event Action<GameEndType> OnGameOver;
+    public int monsterKillCounter = 0;
 
     private void Awake()
     {
@@ -48,9 +52,9 @@ public class GameManager : MonoBehaviour
 
     void makeEnemy()//적 객체 생성
     {
-        int randomNumb = Random.Range(0, prefabs.EnemyNumber);
+        int randomNumb = UnityEngine.Random.Range(0, prefabs.EnemyNumber);
         GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
-        int enemyLocationlist = Random.Range(0, 6);
+        int enemyLocationlist = UnityEngine.Random.Range(0, 6);
         enemyInstance.transform.position = enemyLocation[enemyLocationlist];
 
         enemyInstance.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power += playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv;
@@ -68,7 +72,8 @@ public class GameManager : MonoBehaviour
 
     public void PopUpEnd()//마지막에 결과 표시
     {
-        GameMenuController.menu.GameEnd(GameEndType.GameOver);
+        //GameMenuController.menu.GameEnd(GameEndType.GameOver);
+        OnGameOver?.Invoke(GameEndType.GameOver);
     }
 
     public void ChangeHpBar(float attack)//받은 데미지에 따른 체력바 UI 변경
@@ -86,7 +91,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void ExpChange(float exp)
-    {  
+    {
+        monsterKillCounter++;
+
         playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;
 
         float currentExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp;

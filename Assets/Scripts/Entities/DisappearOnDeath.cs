@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class DisappearOnDeath : MonoBehaviour
     [SerializeField] private bool player = false;//script가 연결된 객체가 player 여부 체크
     private Rigidbody2D _rigidbody;
     [SerializeField] private GameObject _gameObject;
+
+    public event Action<GameEndType> OnGameOver;
 
     private void Start()
     {
