@@ -94,4 +94,19 @@ public class GameManager : MonoBehaviour
             playerHpBar.transform.localScale = new Vector3(-1,y,z);
         }
     }
+
+    public void ExpChange(float exp)
+    {  
+        playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;
+
+        float currentExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp;
+        float maxExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.fullExp;
+        if (currentExp >= maxExp)
+        {
+            playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp = 0;
+            playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv++;
+            playerobject.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power++;
+            playerobject.GetComponent<HealthSystem>().ChangeHealth(5);
+        }
+    }
 }

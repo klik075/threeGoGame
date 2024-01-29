@@ -235,7 +235,7 @@ MonoBehaviour:
     characterName: Girl
     info: null
     lv: 1
-    exp: 0
+    exp: 2
     fullExp: 0
     attackSO: {fileID: 11400000, guid: d0a4f0e5a13020d469cadea8edb823f3, type: 2}
   statsModifiers: []
@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
+  _gameObject: {fileID: 2971079961206589048}
 --- !u!1 &2995788257759012212
 GameObject:
   m_ObjectHideFlags: 0
