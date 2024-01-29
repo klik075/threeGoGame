@@ -31,6 +31,10 @@ public class DisappearOnDeath : MonoBehaviour
             Time.timeScale = 0.0f;
             GameManager.instance.PopUpEnd();
         }
+        else
+        {
+            
+        }
 
         foreach (Behaviour component in transform.GetComponentsInChildren<Behaviour>())//
         {

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag(playerTag).transform;
         healthSystem = Player.gameObject.GetComponent<HealthSystem>();
         playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
-        textname.text = playerobject.GetComponent<CharacterStatHandler>().name;
+        textname.text = "lv.1 " + playerobject.GetComponent<CharacterStatHandler>().name;
         Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
         EnemyLocationSet();
     }
@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         InvokeRepeating("makeEnemy", 0.0f, 1.0f);//반복 호출
 
+    }
+
+    protected void FixedUpdate()
+    {
+        textname.text = "lv." + playerobject.GetComponent <CharacterStatHandler>().CurrentStats.lv + " " + playerobject.GetComponent<CharacterStatHandler>().name;
     }
 
     void makeEnemy()//적 객체 생성
