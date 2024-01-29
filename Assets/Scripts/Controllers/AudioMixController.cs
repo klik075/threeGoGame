@@ -22,6 +22,7 @@ public class AudioMixController : MonoBehaviour
     void Start()
     {
         BGMSlider.value = 0.5f;
+        audioMixer.SetFloat("BGM", BGMSlider.value);
     }
 
     // Update is called once per frame
