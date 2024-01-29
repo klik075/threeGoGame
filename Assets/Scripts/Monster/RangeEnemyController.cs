@@ -35,11 +35,13 @@ public class RangeEnemyController : EnemyController
             }
             else
             {
+                CallLookEvent(direction);//추가
                 CallMoveEvent(direction);
             }
         }
         else
         {
+            CallLookEvent(direction);//추가
             CallMoveEvent(direction);
         }
     }
