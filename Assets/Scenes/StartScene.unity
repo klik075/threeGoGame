@@ -2559,6 +2559,7 @@ MonoBehaviour:
   audioSource: {fileID: 1444817234}
   bgMusic: {fileID: 8300000, guid: d67120e00f48dc343bba020967d33473, type: 3}
   startSceneMusic: {fileID: 8300000, guid: bfcc039585658a64aafa92552983f07a, type: 3}
+  audioMixer: {fileID: 24100000, guid: fee47749520e1bc4495525971ea697ca, type: 2}
 --- !u!4 &1444817236
 Transform:
   m_ObjectHideFlags: 0

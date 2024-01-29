@@ -21,8 +21,14 @@ public class AudioMixController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BGMSlider.value = 0.5f;
-        audioMixer.SetFloat("BGM", BGMSlider.value);
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            BGMSlider.value = PlayerPrefs.GetFloat("Volume");
+        }
+        else
+            BGMSlider.value = 0.5f;
+
+        audioMixer.SetFloat("BGM", Mathf.Log10(BGMSlider.value) * 20);
     }
 
     // Update is called once per frame
@@ -34,6 +40,7 @@ public class AudioMixController : MonoBehaviour
     public void SetBGMVolume(float volume)
     {
         audioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("Volume", BGMSlider.value);
     }
 
     private void SetBGMMute(bool mute)
