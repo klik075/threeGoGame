@@ -39,6 +39,7 @@ public class TimeManager : MonoBehaviour
     public void StopTimer()
     {
         timeStop = true;
+        Time.timeScale = 0f;
     }
 
     public void StartTimer()

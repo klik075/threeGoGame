@@ -20,7 +20,10 @@ public class AnimationController : Animations
 
     private void Start()
     {
-        controller.OnAttackEvent += Attacking;
+        if (gameObject.tag == "Player")
+        {
+            controller.OnAttackEvent += Attacking;
+        }
         controller.OnMoveEvent += Move;
 
         if (_healthSystem != null)
