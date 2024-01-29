@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag(playerTag).transform;
         healthSystem = Player.gameObject.GetComponent<HealthSystem>();
         playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
-        textname.text = playerobject.GetComponent<CharacterStatHandler>().name;
+        textname.text = "lv.1 " + playerobject.GetComponent<CharacterStatHandler>().name;
         Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
         EnemyLocationSet();
     }
@@ -41,24 +41,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    protected void FixedUpdate()
+    {
+        textname.text = "lv." + playerobject.GetComponent <CharacterStatHandler>().CurrentStats.lv + " " + playerobject.GetComponent<CharacterStatHandler>().name;
+    }
+
     void makeEnemy()//利 按眉 积己
     {
-        if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv==1)
-        {
-            int randomNumb = Random.Range(0, prefabs.EnemyNumber);
-            GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
-            int enemyLocationlist = Random.Range(0,6);
-            enemyInstance.transform.position = enemyLocation[enemyLocationlist];
-        }
-        else if(playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv == 2)
-        {
-            Instantiate(prefabs.Enemy2Prefab);
-        }
-        else
-        {
-            Instantiate(prefabs.Enemy2Prefab);
-        }
+        int randomNumb = Random.Range(0, prefabs.EnemyNumber);
+        GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
+        int enemyLocationlist = Random.Range(0, 6);
+        enemyInstance.transform.position = enemyLocation[enemyLocationlist];
 
+        enemyInstance.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power += playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv;
     }
 
     void EnemyLocationSet()
@@ -87,6 +82,21 @@ public class GameManager : MonoBehaviour
             float y = playerHpBar.GetComponent<Transform>().localScale.y;
             float z = playerHpBar.GetComponent<Transform>().localScale.z;
             playerHpBar.transform.localScale = new Vector3(-1,y,z);
+        }
+    }
+
+    public void ExpChange(float exp)
+    {  
+        playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;
+
+        float currentExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp;
+        float maxExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.fullExp;
+        if (currentExp >= maxExp)
+        {
+            playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp = 0;
+            playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv++;
+            playerobject.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power++;
+            playerobject.GetComponent<HealthSystem>().ChangeHealth(5);
         }
     }
 }
