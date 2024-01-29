@@ -38,4 +38,19 @@ public class AudioManager : MonoBehaviour
     {
         
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        switch (level)
+        {
+            case 0:
+                audioSource.clip = startSceneMusic;
+                break;
+            case 1:
+                audioSource.clip = bgMusic;
+                break;
+        }
+
+        audioSource.Play();
+    }
 }
