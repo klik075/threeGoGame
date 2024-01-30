@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private GameObject playerobject;
     [SerializeField] private GameObject playerHpBar;
-    [SerializeField] private Text textname;
+    [SerializeField] public Text textname;
     [SerializeField] private GameObject map;
+    public int enemyDefeatCount=0;
     public PrefabManager prefabs;
     public List<Vector3> enemyLocation = new List<Vector3>();
     private HealthSystem healthSystem;
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
     public void ExpChange(float exp)
     {  
         playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;
+        enemyDefeatCount++;
 
         float currentExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp;
         float maxExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.fullExp;

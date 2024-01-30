@@ -325,18 +325,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEndPopup: {fileID: 25480208}
-  surviveTimeText: {fileID: 384270608}
   timeText: {fileID: 361424456}
   homeButton: {fileID: 1633972490}
   restartButton: {fileID: 1534301802}
   gameClearText: {fileID: 914597641}
   gameOverText: {fileID: 291338503}
-  charactername1: {fileID: 590555617}
-  charactername2: {fileID: 388623230}
-  charactername3: {fileID: 1544532487}
-  score1: {fileID: 384270605}
-  score2: {fileID: 588466473}
-  score3: {fileID: 1175150605}
+  charactername1: {fileID: 590555619}
+  charactername2: {fileID: 388623232}
+  charactername3: {fileID: 1544532489}
+  score1: {fileID: 384270608}
+  score2: {fileID: 588466475}
+  score3: {fileID: 1175150606}
 --- !u!1 &114577507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1334,7 @@ MonoBehaviour:
   playerHpBar: {fileID: 1948312322}
   textname: {fileID: 1401108141}
   map: {fileID: 5350165383319599916, guid: 45e3e84c45416b240951f3261f0012fe, type: 3}
+  enemyDefeatCount: 0
   prefabs: {fileID: 1947876191}
   enemyLocation: []
 --- !u!1 &333887475
@@ -4766,7 +4766,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEndPopup: {fileID: 25480208}
-  surviveTimeText: {fileID: 384270608}
   timeText: {fileID: 361424456}
   homeButton: {fileID: 1633972490}
   restartButton: {fileID: 1534301802}
