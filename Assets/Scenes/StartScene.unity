@@ -2802,7 +2802,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2022246978}
         m_TargetAssemblyTypeName: SettingMenuController, Assembly-CSharp
-        m_MethodName: OnClickSettingHomeButton
+        m_MethodName: OnClickGameExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
