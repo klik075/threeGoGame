@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     { 
         Time.timeScale = 1f;
         InvokeRepeating("makeEnemy", 0.0f, 1.0f);//반복 호출
-
+        Player.GetComponent<CharacterStatHandler>().CurrentStats.characterName = playerobject.name;
     }
 
     protected void FixedUpdate()
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
         enemyLocation.Add(new Vector3(-5f, -8f,0));
         enemyLocation.Add(new Vector3(5f, -8f,0));
     }
-
     public void PopUpEnd()//마지막에 결과 표시
     {
         GameMenuController.menu.GameEnd(GameEndType.GameOver);

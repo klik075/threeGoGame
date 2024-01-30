@@ -18,9 +18,12 @@ public class GameMenuController : MonoBehaviour
     [SerializeField] private GameObject gameClearText;
     [SerializeField] private GameObject gameOverText;
 
+    [SerializeField] private SaveRecordData saveRecordData;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         menu = this;
         _timeManager = TimeManager.timeIns;
         _timeManager.OnGameEnd += GameEnd;      // 게임 종료 이벤트 구독하기
@@ -47,6 +50,8 @@ public class GameMenuController : MonoBehaviour
 
     public void GameEnd(GameEndType gameEndType)
     {
+        Debug.Log(gameManager.Player.GetComponent<CharacterStatHandler>().CurrentStats.characterName);
+        saveRecordData.SaveCurrentData(gameManager.Player.GetComponent<CharacterStatHandler>().CurrentStats.characterName, _timeManager.timeGoing);//플레이어 이름 , 시간으로 저장
         // 게임 종료 시 팝업창 띄우기
         switch (gameEndType)
         {

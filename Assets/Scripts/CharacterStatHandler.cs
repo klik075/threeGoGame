@@ -24,6 +24,7 @@ public class CharacterStatHandler : MonoBehaviour
            attackSO = Instantiate(baseStats.attackSO);
         }
         CurrentStats = new CharacterStat { attackSO = attackSO };
+        CurrentStats.characterName = this.gameObject.name;
         CurrentStats.maxHealth = baseStats.maxHealth;
         CurrentStats.speed = baseStats.speed;
         CurrentStats.characterName = baseStats.characterName;
