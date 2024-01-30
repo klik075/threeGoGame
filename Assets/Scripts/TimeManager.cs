@@ -10,7 +10,7 @@ public class TimeManager : MonoBehaviour
 
     public event Action<GameEndType> OnGameEnd;  // 제한 시간 초과 시 GameEnd 이벤트 발생
 
-    public float timeGoing;
+    public float timeGoing=0;
     private float timeLimit = 6000;   // 제한 시간 10분 (임시)
 
     private void Awake()

@@ -9,7 +9,6 @@ public class GameMenuController : MonoBehaviour
     private TimeManager _timeManager;
     public static GameMenuController menu;
     [SerializeField] private GameObject gameEndPopup;
-    [SerializeField] private Text surviveTimeText;
     [SerializeField] private Text timeText;
 
     [SerializeField] private Button homeButton;
@@ -17,6 +16,8 @@ public class GameMenuController : MonoBehaviour
 
     [SerializeField] private GameObject gameClearText;
     [SerializeField] private GameObject gameOverText;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,6 @@ public class GameMenuController : MonoBehaviour
         }
 
         gameEndPopup.SetActive(true);
-        surviveTimeText.text = timeText.text;
+
     }
 }
