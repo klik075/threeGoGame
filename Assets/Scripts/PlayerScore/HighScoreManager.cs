@@ -22,6 +22,7 @@ public class HighScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 게임 종료 시 CalcHighScore 실행
         GameManager.instance.OnGameOver += CalcHighScore;
         TimeManager.timeIns.OnGameEnd += CalcHighScore;
     }
@@ -34,7 +35,7 @@ public class HighScoreManager : MonoBehaviour
 
     private void CalcHighScore(GameEndType type)
     {
-        int playerSurvivedSecond = 0;
+        int playerSurvivedSecond = 0;   // 생존시간 deltaTime을 초 단위로 변경하기
 
         if (survivedText != null && int.TryParse(survivedText.text, out playerSurvivedSecond))
         {
@@ -43,19 +44,29 @@ public class HighScoreManager : MonoBehaviour
         else return;
 
         _monsterKillCounter = GameManager.instance.monsterKillCounter;
-        _playerScore = _monsterKillCounter + playerSurvivedSecond;
+        _playerScore = _monsterKillCounter + playerSurvivedSecond;  // 점수 계산
 
         SetNewHighScore();
     }
 
     private void SetNewHighScore()
     {
-        int index = playerHighScoreList.FindIndex(i => i.highScore == _playerScore);
-
-        if(index != -1)
+        if (playerHighScoreList.Count < 10)
         {
             PlayerHighScore newHighScore = new PlayerHighScore(PlayerPrefs.GetString("CharacterName"), _playerScore);
-            playerHighScoreList[index] = newHighScore;
+            playerHighScoreList.Add(newHighScore);
+            playerHighScoreList.Sort();
+        }
+        else
+        {
+            int index = playerHighScoreList.FindIndex(i => (i.highScore <= _playerScore));
+
+            if (index != -1)
+            {
+                PlayerHighScore newHighScore = new PlayerHighScore(PlayerPrefs.GetString("CharacterName"), _playerScore);
+                playerHighScoreList[index] = newHighScore;
+                playerHighScoreList.Sort();
+            }
         }
     }
 }
