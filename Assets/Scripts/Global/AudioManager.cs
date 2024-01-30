@@ -47,6 +47,8 @@ public class AudioManager : MonoBehaviour
         {
             audioMixer.SetFloat("BGM", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
         }
+        if(PlayerPrefs.HasKey("SFX"))
+            audioMixer.SetFloat("SFX", Mathf.Log10(PlayerPrefs.GetFloat("SFX")) * 20);
 
         audioSource.Play();
     }
