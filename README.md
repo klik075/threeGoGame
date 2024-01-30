@@ -12,7 +12,7 @@ Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로�
 - 금경희(팀장) : Player와 InputSystem 구현, 발표
 - 김철우 : Game Logic 구현 및 작업물 Merge, 게임 종료 후 최고 점수 출력
 - 정원우 : Enemy 생성 및 Prefabs 구현
-- 송상화 : UI와 Audio 구현, 노션과 ReadMe 작
+- 송상화 : UI와 Audio 구현, 노션과 ReadMe 작성
 
 ## 🖥️ 개발 환경
 - Visual Studio 2022
@@ -23,6 +23,9 @@ Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로�
 ## 🛠️ 주요 기능
 - ### 시작 화면(StartScene)
   - 게임 타이틀, Player 이름 입력, 옵션 설정 및 게임 플레이
+  ![StartScene](https://github.com/klik075/threeGoGame/assets/151727593/bd2c980e-91c8-44f5-aaa0-b1acd2e1a613)
+
+
     
 - ### 메인 화면(MainScene)
   - #### Player의 게임 실행 화면입니다.
