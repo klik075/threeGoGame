@@ -67,7 +67,7 @@ public class GameMenuController : MonoBehaviour
                 break;
         }
 
-        gameEndPopup.SetActive(true);
+
 
         //기록들을 불러와서 현재 기록과 비교 후 상위 3개 저장 
         if (PlayerPrefs.HasKey("bestScore1") == true && PlayerPrefs.HasKey("bestScore2") == true && PlayerPrefs.HasKey("bestScore3") == true)
@@ -173,14 +173,13 @@ public class GameMenuController : MonoBehaviour
             PlayerPrefs.SetString("bestScore1Name", GameManager.instance.textname.text);
             PlayerPrefs.SetInt("bestScore1", GameManager.instance.enemyDefeatCount * 1 + (int)_timeManager.timeGoing * 4);
         }
+        Debug.Log(PlayerPrefs.GetString("bestScore1Name"));
 
-        Invoke("display", 0.5f);             
-    }
+        gameEndPopup.SetActive(true);
 
-    void display()
-    {
-        //UI에 입력
+        Debug.Log(charactername1.text);
         charactername1.text = PlayerPrefs.HasKey("bestScore1Name") ? PlayerPrefs.GetString("bestScore1Name") : "---";
+        Debug.Log(charactername1.text);
         charactername2.text = PlayerPrefs.HasKey("bestScore2Name") ? PlayerPrefs.GetString("bestScore2Name") : "---";
         charactername3.text = PlayerPrefs.HasKey("bestScore3Name") ? PlayerPrefs.GetString("bestScore3Name") : "---";
 

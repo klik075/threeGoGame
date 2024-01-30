@@ -84,6 +84,12 @@ public class GameManager : MonoBehaviour
             float z = playerHpBar.GetComponent<Transform>().localScale.z;
             playerHpBar.transform.localScale = new Vector3(-1,y,z);
         }
+        else if(playerHpBar.GetComponent<Transform>().localScale.x >= 0)
+        {
+            float y = playerHpBar.GetComponent<Transform>().localScale.y;
+            float z = playerHpBar.GetComponent<Transform>().localScale.z;
+            playerHpBar.transform.localScale = new Vector3(0, y, z);
+        }
     }
 
     public void ExpChange(float exp)
