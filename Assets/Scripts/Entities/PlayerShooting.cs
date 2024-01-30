@@ -47,6 +47,8 @@ public class PlayerShooting : MonoBehaviour
 
             CreateProjectile(rangedAttackData, angle);
         }
+
+        if (_controller.gameObject.tag == "Player") AudioManager.instance.PlayClip(SFXClipType.Attack);
     }
 
     private void CreateProjectile(RangedAttackData rangedAttackData, float angle) // RangedAttackData rangedAttackData, float angle
@@ -56,8 +58,6 @@ public class PlayerShooting : MonoBehaviour
             RotateVector2(_aimDirection, angle),
             rangedAttackData
             );
-        //if (shootingClip)
-        //    SoundManager.PlayClip(shootingClip);
     }
 
     private static Vector2 RotateVector2(Vector2 v, float degree)
