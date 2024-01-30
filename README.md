@@ -1,35 +1,36 @@
 ## 😾 NO TIME TO SHOWER
 Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로젝트입니다.
 
-### 프로젝트 소개
-#### 씻기 싫어하는 고양이의 입장이 되어보자! 
+## 프로젝트 소개
+### 씻기 싫어하는 고양이의 입장이 되어보자! 
 고양이가 자신을 샤워 시키기 위해 쫓아오는 사람들을 무찔러서 일정 시간동안 생존하면 승리하는 게임입니다.
 
-### 📅 개발 기간
+## 📅 개발 기간
 24.01.24 ~ 24.01.30
 
-### 😎 멤버 구성 및 역할 분담
+## 😎 멤버 구성 및 역할 분담
 - 금경희(팀장) : Player와 InputSystem 구현, 발표
 - 김철우 : Game Logic 구현 및 작업물 Merge, 게임 종료 후 최고 점수 출력
 - 정원우 : Enemy 생성 및 Prefabs 구현
 - 송상화 : UI와 Audio 구현, 노션과 ReadMe 작
 
-### 🖥️ 개발 환경
+## 🖥️ 개발 환경
 - Visual Studio 2022
 - C# .Net 8.0
 - Unity 2022.3.2f1
 - Github Desktop
 
-### 🛠️ 주요 기능
-- #### 시작 화면(StartScene)
+## 🛠️ 주요 기능
+- ### 시작 화면(StartScene)
   - 게임 타이틀, Player 이름 입력, 옵션 설정 및 게임 플레이
     
-- #### 메인 화면(MainScene)
+- ### 메인 화면(MainScene)
   - #### Player의 게임 실행 화면입니다.
   - Player, Enemy과 Tilemap의 구현
   
-- #### 게임 로직
+- ### 게임 로직
   - 게임 시작, 플레이어의 생존 여부에 따른 게임 종료, 플레이어와 적의 공격과 피격, 점수를 관리합니다.
+
 
 ### 🔬 세부 기능
 - 플레이어, 적의 접촉 및 원거리 공격의 충돌 처리
@@ -44,7 +45,7 @@ Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로�
 - BGM과 SFX 조절 기능
 - 게임 종료 시 최고 결과 1 ~ 3등 출력
 
-### 👨‍💻 팀원 별 구현 기능
+## 👨‍💻 팀원 별 구현 기능
 - 금경희
    #### Player 구현
   - Player의 애니메이션 설정
@@ -83,7 +84,7 @@ Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로�
   - 게임 종료 시 출력되는 결과 화면 구현
   
 
-### 📌 Reference
+## 📌 Reference
 #### 사용 에셋 :
 - Player : <https://opengameart.org/content/tiny-kitten-game-sprite>
 - Enemy : <https://assetstore.unity.com/packages/2d/undead-survivor-assets-pack-238068>
