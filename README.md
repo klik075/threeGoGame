@@ -26,22 +26,21 @@ Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로�
 <img src="https://github.com/klik075/threeGoGame/assets/151727593/bd2c980e-91c8-44f5-aaa0-b1acd2e1a613" />
 
 #### Player의 이름 입력
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/151727593/300732857-b16ec3ff-5666-40e5-9f26-0b02471c3c7a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240130T083258Z&X-Amz-Expires=300&X-Amz-Signature=e625c2a26914ec1a18c81c77a3e2fe4e1dc6738e6c48f91c66026248f04f8ebc&X-Amz-SignedHeaders=host&actor_id=151727593&key_id=0&repo_id=747972898" />
+![alt text](https://github.com/klik075/threeGoGame/assets/151727593/a216dd98-eba2-4106-8b9b-8029be69ca7c)
 
 #### 음악, 효과음 볼륨 조절
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/151727593/300733275-ff4aeb9c-9c98-44bd-8af5-52090e4cf240.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240130T083421Z&X-Amz-Expires=300&X-Amz-Signature=8426a9a71b44a61a2de3093e77cccc35842499c4d85dfabc7e66793f4f32b4b6&X-Amz-SignedHeaders=host&actor_id=151727593&key_id=0&repo_id=747972898" />
+![alt text](https://github.com/klik075/threeGoGame/assets/151727593/81279001-1521-4242-8c49-965060859cd6)
 
---------
-
+------
 ### 메인 화면(MainScene)
-#### 전투 화면
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/151727593/300736371-bdefd1d3-5a52-4696-952f-a2f2f84352d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240130T084508Z&X-Amz-Expires=300&X-Amz-Signature=696f9da66430bc9c59eaba656c44ab1d02527bf5c0a363bdcbd0fedbfa9f6e88&X-Amz-SignedHeaders=host&actor_id=151727593&key_id=0&repo_id=747972898" />
+#### 전투 시작 화면
+![alt text](https://github.com/klik075/threeGoGame/assets/151727593/fe89d058-eb7f-4827-b83e-0ee5650accd8)
 
 #### 투사체 발사
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/151727593/300737086-b616dd35-ff6f-4119-831c-99428ffc8150.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240130T084744Z&X-Amz-Expires=300&X-Amz-Signature=4be9daceea598e83a3bf64a119cd9dda78417495325696bd63f51387e7a77a02&X-Amz-SignedHeaders=host&actor_id=151727593&key_id=0&repo_id=747972898" />
+![alt text](https://github.com/klik075/threeGoGame/assets/151727593/956fe7cc-084e-4896-8697-a963e79bad9c)
 
 #### 게임 종료
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/151727593/300737532-c574e337-dd21-4913-9c80-74d1e236389a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240130%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240130T084917Z&X-Amz-Expires=300&X-Amz-Signature=ad01a25a2c3a5c8a465526c123a9592ca63543ae008551958084e23f8817a223&X-Amz-SignedHeaders=host&actor_id=151727593&key_id=0&repo_id=747972898" />
+![alt text](https://github.com/klik075/threeGoGame/assets/151727593/1d1a9572-7242-4a32-bac6-7218bc7a9a91)
 
 -------
 
