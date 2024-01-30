@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
+public enum SFXClipType
+{
+    Attack,
+    Hit,
+    LevelUp,
+    GameClear,
+    GameOver
+}
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -12,6 +21,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip startSceneMusic;
 
     [SerializeField] private AudioMixer audioMixer;
+
+    [SerializeField] private AudioSource sfxPlayer;
+    [SerializeField] private AudioClip[] sfxClips;
 
     private void Awake()
     {
@@ -37,6 +49,8 @@ public class AudioManager : MonoBehaviour
         {
             audioMixer.SetFloat("BGM", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
         }
+        if(PlayerPrefs.HasKey("SFX"))
+            audioMixer.SetFloat("SFX", Mathf.Log10(PlayerPrefs.GetFloat("SFX")) * 20);
 
         audioSource.Play();
     }
@@ -60,5 +74,10 @@ public class AudioManager : MonoBehaviour
         }
 
         audioSource.Play();
+    }
+
+    public void PlayClip(SFXClipType clipType)
+    {
+        sfxPlayer.PlayOneShot(sfxClips[(int)clipType]);
     }
 }
