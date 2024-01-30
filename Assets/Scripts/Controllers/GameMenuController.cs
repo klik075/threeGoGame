@@ -54,10 +54,12 @@ public class GameMenuController : MonoBehaviour
             // 게임 클리어 시 Game Clear
             case GameEndType.GameClear:
                 gameClearText.SetActive(true);
+                AudioManager.instance.PlayClip(SFXClipType.GameClear);
                 break;
             // 캐릭터 사망 시 Game Over
             case GameEndType.GameOver:
                 gameOverText.SetActive(true);
+                AudioManager.instance.PlayClip(SFXClipType.GameOver);
                 break;
         }
 

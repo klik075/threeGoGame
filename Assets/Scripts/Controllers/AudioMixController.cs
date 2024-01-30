@@ -9,12 +9,14 @@ public class AudioMixController : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider BGMSlider;
+    [SerializeField] private Slider SFXSlider;
     [SerializeField] private Toggle BGMMute;
 
 
     private void Awake()
     {
         BGMSlider.onValueChanged.AddListener(SetBGMVolume);
+        SFXSlider.onValueChanged.AddListener(SetSFXVolume);
         BGMMute.onValueChanged.AddListener(SetBGMMute);
     }
 
@@ -28,7 +30,13 @@ public class AudioMixController : MonoBehaviour
         else
             BGMSlider.value = 0.5f;
 
+        if (PlayerPrefs.HasKey("SFX"))
+            SFXSlider.value = PlayerPrefs.GetFloat("SFX");
+        else
+            SFXSlider.value = 0.5f;
+
         audioMixer.SetFloat("BGM", Mathf.Log10(BGMSlider.value) * 20);
+        audioMixer.SetFloat("SFX", Mathf.Log10(SFXSlider.value) * 20);
     }
 
     // Update is called once per frame
@@ -41,6 +49,12 @@ public class AudioMixController : MonoBehaviour
     {
         audioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("Volume", BGMSlider.value);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SFX", SFXSlider.value);
     }
 
     private void SetBGMMute(bool mute)

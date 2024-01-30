@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         textname.text = "lv.1 " + playerobject.GetComponent<CharacterStatHandler>().name;
         Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
         EnemyLocationSet();
+        healthSystem.OnDamage += PlayHitSFX;
     }
 
     private void Start()
@@ -86,6 +87,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeHpBar(float attack)//받은 데미지에 따른 체력바 UI 변경
     {
+        //if(attack != 5 && healthSystem.) AudioManager.instance.PlayClip(SFXClipType.Hit);
+
         //float maxHp = playerobject.GetComponent<HealthSystem>().MaxHealth;
         //playerHpBar.transform.localScale = new Vector3(-attack / maxHp, 0, 0);
         float maxHp = healthSystem.MaxHealth;
@@ -104,6 +107,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void PlayHitSFX()
+    {
+        AudioManager.instance.PlayClip(SFXClipType.Hit);
+    }
+
     public void ExpChange(float exp)
     {  
         playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;
@@ -117,7 +125,10 @@ public class GameManager : MonoBehaviour
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv++;
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power++;
             playerobject.GetComponent<HealthSystem>().ChangeHealth(5);
+
             ChangeHpBar(-5);
+
+            AudioManager.instance.PlayClip(SFXClipType.LevelUp);
         }
     }
 
