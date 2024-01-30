@@ -20,7 +20,7 @@ Unity 입문 주차 팀프로젝트 3조, 못 먹어도 쓰리고의 팀 프로�
 - Unity 2022.3.2f1
 - Github Desktop
 
-## 실행 화면
+## 🎮 실행 화면
 ### 시작 화면(StartScene)
 #### 게임 타이틀
 <img src="https://github.com/klik075/threeGoGame/assets/151727593/bd2c980e-91c8-44f5-aaa0-b1acd2e1a613" />
