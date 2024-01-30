@@ -8,7 +8,9 @@ public enum SFXClipType
 {
     Attack,
     Hit,
-    LevelUp
+    LevelUp,
+    GameClear,
+    GameOver
 }
 
 public class AudioManager : MonoBehaviour
