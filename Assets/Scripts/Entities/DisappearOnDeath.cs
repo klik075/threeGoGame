@@ -30,7 +30,7 @@ public class DisappearOnDeath : MonoBehaviour
         if (player == true) //죽는 객체가 player라면 gameManager에서 결과창 함수 호출
         {
             GameManager.instance.PopUpEnd();
-            //Time.timeScale = 0.0f;
+            Time.timeScale = 0.0f;
         }
         else
         {
