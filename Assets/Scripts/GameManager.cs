@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv++;
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power++;
             playerobject.GetComponent<HealthSystem>().ChangeHealth(5);
-            ChangeHpBar(5);
+            ChangeHpBar(-5);
         }
     }
 }

@@ -18,6 +18,14 @@ public class GameMenuController : MonoBehaviour
     [SerializeField] private GameObject gameClearText;
     [SerializeField] private GameObject gameOverText;
 
+    [SerializeField] private GameObject charactername1;
+    [SerializeField] private GameObject charactername2;
+    [SerializeField] private GameObject charactername3;
+
+    [SerializeField] private GameObject score1;
+    [SerializeField] private GameObject score2;
+    [SerializeField] private GameObject score3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +69,10 @@ public class GameMenuController : MonoBehaviour
         }
 
         gameEndPopup.SetActive(true);
+
+        //기록들을 불러와서 text에 입력시켜야 
+
+
         surviveTimeText.text = timeText.text;
     }
 }
