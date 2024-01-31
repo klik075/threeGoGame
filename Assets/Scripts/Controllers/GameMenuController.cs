@@ -8,12 +8,13 @@ public class GameMenuController : MonoBehaviour
 {
     private TimeManager _timeManager;
     public static GameMenuController menu;
-    [SerializeField] private GameObject gameEndPopup;
+    [SerializeField] private GameObject gameEndPopup;       // 게임 종료 시 출력되는 결과 화면
     [SerializeField] private Text timeText;
 
     [SerializeField] private Button homeButton;
     [SerializeField] private Button restartButton;
 
+    // 게임 종료 시 출력되는 Header의 텍스트
     [SerializeField] private GameObject gameClearText;
     [SerializeField] private GameObject gameOverText;
 
@@ -38,11 +39,13 @@ public class GameMenuController : MonoBehaviour
 
     public void OnClickHomeButton()
     {
+        // 홈 버튼 클릭 시 StartScene으로 이동
         SceneManager.LoadScene("StartScene");
     }
 
     public void OnClickRestartButton()
     {
+        // Restart 버튼 클릭 시 다시 시작
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
