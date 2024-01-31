@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class CharacterStatHandler : MonoBehaviour
 {
-    [SerializeField] private CharacterStat baseStats;
-    public CharacterStat CurrentStats { get; private set; }
+    [SerializeField] private CharacterStat baseStats; //인스펙터에서 객체의 기본 정보들을 입력할 수 있다.
+    public CharacterStat CurrentStats { get; private set; } //현재의 스텟 정보
 
-    public List<CharacterStat> statsModifiers = new List<CharacterStat>();
+    public List<CharacterStat> statsModifiers = new List<CharacterStat>(); //추가 스텟의 경우 만들어 두었지만 현재는 사용하지 않음.
 
     private void Awake()
     {
         UpdateCharacterStats();
     }
-    // Start is called before the first frame update
     
-    private void UpdateCharacterStats() //수정 고려
+    private void UpdateCharacterStats() //베이스의 능력치를 기반으로 현재 능력치 설정
     {
         AttackSO attackSO = null;
         if (baseStats.attackSO != null)
@@ -31,7 +30,6 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.lv = baseStats.lv;
         CurrentStats.info = baseStats.info;
         CurrentStats.fullExp = baseStats.fullExp;
-        //추가작업
     }
     
 }

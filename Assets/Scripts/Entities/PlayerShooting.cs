@@ -7,15 +7,14 @@ public class PlayerShooting : MonoBehaviour
     private ProjectileManager _projectileManager;
     private CharacterController _controller;
 
-    [SerializeField] private Transform projectileSpawnPosition;
-    private Vector2 _aimDirection = Vector2.right;
+    [SerializeField] private Transform projectileSpawnPosition;//투사체 발사 위치
+    private Vector2 _aimDirection = Vector2.right;//에임의 방향
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         //Debug.Log("start");
@@ -29,29 +28,27 @@ public class PlayerShooting : MonoBehaviour
         _aimDirection = newAimDirection;
     }
 
-    private void OnShoot(AttackSO attackSO)
+    private void OnShoot(AttackSO attackSO)//투사체 발사
     {
-        RangedAttackData rangedAttackData = attackSO as RangedAttackData;
+        RangedAttackData rangedAttackData = attackSO as RangedAttackData; //공격 정보를 원거리로 형변환
         float projectilesAngleSpace = rangedAttackData.multipleProjectilesAngel;
         int numberOfProjextilesPerShot = rangedAttackData.numberofProjectilesPerShot;
-        // 캐릭터가 발사하는 각도 부채꼴 모양 위로 올려줌 ?? 꺾어줌 ??  뭐 그런느낌 ...
-        float minAngle = -(numberOfProjextilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel;
+        float minAngle = -(numberOfProjextilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel; //투사체를 동시에 여러개 발사할 경우 중앙을 기준으로 투사체가 날아가도록 각도를 꺾어 놓는다.
 
-        //Debug.LogError(numberOfProjextilesPerShot);
-        for (int i = 0; i < numberOfProjextilesPerShot; i++)    
+        for (int i = 0; i < numberOfProjextilesPerShot; i++) //한 번에 발사할 투사체 개수
         {
 
-            float angle = minAngle + projectilesAngleSpace * i; 
-            float randomSpread = Random.Range(-rangedAttackData.spread, rangedAttackData.spread);
+            float angle = minAngle + projectilesAngleSpace * i; //투사의 각도를 일정하게 더한다.
+            float randomSpread = Random.Range(-rangedAttackData.spread, rangedAttackData.spread);//투사체의 정확도를 결정
             angle += randomSpread;
 
-            CreateProjectile(rangedAttackData, angle);
+            CreateProjectile(rangedAttackData, angle); //총알 생성
         }
 
-        if (AudioManager.instance != null && _controller.gameObject.tag == "Player") AudioManager.instance.PlayClip(SFXClipType.Attack);
+        if (AudioManager.instance != null && _controller.gameObject.tag == "Player") AudioManager.instance.PlayClip(SFXClipType.Attack);//발사할 때  클립 재생
     }
 
-    private void CreateProjectile(RangedAttackData rangedAttackData, float angle) // RangedAttackData rangedAttackData, float angle
+    private void CreateProjectile(RangedAttackData rangedAttackData, float angle)//총알 생성
     {
         _projectileManager.ShootBullet(
             projectileSpawnPosition.position,
@@ -60,7 +57,7 @@ public class PlayerShooting : MonoBehaviour
             );
     }
 
-    private static Vector2 RotateVector2(Vector2 v, float degree)
+    private static Vector2 RotateVector2(Vector2 v, float degree)//벡터를 각도의 방향으로 회전
     {
         return Quaternion.Euler(0, 0, degree) * v;
     }

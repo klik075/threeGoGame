@@ -24,12 +24,12 @@ public class ProjectileManager : MonoBehaviour
     // 미사일 만드는 함수구현
     public void ShootBullet(Vector2 startPosition, Vector2 direction, RangedAttackData attackData)
     {
-        GameObject obj = objectPool.SpawnFromPool(attackData.bulletNameTag);  
+        GameObject obj = objectPool.SpawnFromPool(attackData.bulletNameTag); //투사체의 태그로 투사체를 가져온다.
 
-        obj.transform.position = startPosition;
+        obj.transform.position = startPosition; //투사체의 위치를 지정
         RangedAttackController attackController = obj.GetComponent<RangedAttackController>();
-        attackController.InitializeAttack(direction, attackData, this);
+        attackController.InitializeAttack(direction, attackData, this);//투사체의 기본 정보들을 초기화
 
-        obj.SetActive(true);
+        obj.SetActive(true);//투사체를 활성화 한다.
     }
 }

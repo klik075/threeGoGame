@@ -25,27 +25,26 @@ public class PlayerInputController : CharacterController
         _camera.transform.position = new Vector3(targetPos.x, targetPos.y, -10); //카메라 위치값 적용
     }
 
-    public void OnMove(InputValue value)
+    public void OnMove(InputValue value)//wasd를 눌렀을 때 실행
     {
-        //Debug.Log("OnMove" + value.ToString());
-        Vector2 moveInput = value.Get<Vector2>().normalized;
-        CallMoveEvent(moveInput);
+        Vector2 moveInput = value.Get<Vector2>().normalized;//wasd에 해당하는 벡터를 단위 벡터로 변환
+        CallMoveEvent(moveInput);//움직임 실행
     }
 
-    public void OnLook(InputValue value)
+    public void OnLook(InputValue value)//마우스를 화면상에서 움직였을 때
     {
-        Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPos = _camera.ScreenToWorldPoint(newAim);
-        newAim = (worldPos - (Vector2)transform.position).normalized;
+        Vector2 newAim = value.Get<Vector2>();//스크린상 좌표를 가져오고
+        Vector2 worldPos = _camera.ScreenToWorldPoint(newAim);//게임좌표로 변환한다.
+        newAim = (worldPos - (Vector2)transform.position).normalized;//자신의 위치에서 에임의 위치로 가는 단위벡터를 반환
 
-        if (newAim.magnitude >= .9f)
+        if (newAim.magnitude >= .9f)//크기가 .9보다 클 때
         {
-            CallLookEvent(newAim);
+            CallLookEvent(newAim);//실행
         }
     }
 
-    public void OnFire(InputValue value)
+    public void OnFire(InputValue value)//마우스를 눌렀을 때 실행
     {
-        IsAttacking = value.isPressed;
+        IsAttacking = value.isPressed; //누르면 공격 가능으로 변경
     }
 }

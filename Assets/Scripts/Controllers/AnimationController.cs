@@ -20,16 +20,16 @@ public class AnimationController : Animations
 
     private void Start()
     {
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "Player")// 자신의 태그가 플레이어라면
         {
-            controller.OnAttackEvent += Attacking;
+            controller.OnAttackEvent += Attacking;//공격 애니메이션 구독
         }
-        controller.OnMoveEvent += Move;
+        controller.OnMoveEvent += Move;//이동 애니메이션 구독
 
         if (_healthSystem != null)
         {
-            _healthSystem.OnDamage += Hit;
-            _healthSystem.OnInvincibilityEnd += InvincibilityEnd;
+            _healthSystem.OnDamage += Hit;//피격 애니메이션 구독
+            _healthSystem.OnInvincibilityEnd += InvincibilityEnd;//피격 후 애니메이션 구독
         }
     }
     
