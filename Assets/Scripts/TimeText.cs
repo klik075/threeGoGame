@@ -19,13 +19,13 @@ public class TimeText : MonoBehaviour
     void Start()
     {
         timeManager = TimeManager.timeIns;
-        //timeManager.StartTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
         gameTime = timeManager.timeGoing;
+        // 현재 진행 시간 띄우기
         timeText.text = $"{(int)(gameTime / 60)}" + ":" + $"{(int)gameTime%60:D2}";
     }
 }
