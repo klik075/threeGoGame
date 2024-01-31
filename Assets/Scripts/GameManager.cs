@@ -30,19 +30,19 @@ public class GameManager : MonoBehaviour
 
     public int enemyDefeatCount=0;
     public PrefabManager prefabs;
-    public List<Vector3> enemyLocation = new List<Vector3>();
+    public List<Vector3> enemyLocation = new List<Vector3>();//evemy start location list
     private HealthSystem healthSystem;
 
     private void Awake()
     {
         instance = this;
-        Player = GameObject.FindGameObjectWithTag(playerTag).transform;
+        Player = GameObject.FindGameObjectWithTag(playerTag).transform;//gets transform data of object(tag == player)
         healthSystem = Player.gameObject.GetComponent<HealthSystem>();
         playerobject.GetComponent<CharacterStatHandler>().name = PlayerPrefs.GetString("CharacterName");
-        textname.text = "lv.1 " + playerobject.GetComponent<CharacterStatHandler>().name;
-        Instantiate(map, new Vector3(0,0,0), Quaternion.identity);
-        EnemyLocationSet();
-        healthSystem.OnDamage += PlayHitSFX;
+        textname.text = "lv.1 " + playerobject.GetComponent<CharacterStatHandler>().name;//lv and name of player to text UI
+        Instantiate(map, new Vector3(0,0,0), Quaternion.identity);//gets grid map from prefab
+        EnemyLocationSet();//set enemy start location data
+        healthSystem.OnDamage += PlayHitSFX;//input PlayHitSFX function in OnDamage event
     }
 
     private void Start()
@@ -52,22 +52,22 @@ public class GameManager : MonoBehaviour
 
     }
 
-    protected void FixedUpdate()
+    protected void FixedUpdate()//every 1 second, lv of player to text UI
     {
         textname.text = "lv." + playerobject.GetComponent <CharacterStatHandler>().CurrentStats.lv + " " + playerobject.GetComponent<CharacterStatHandler>().name;
     }
 
-    void makeEnemy()//적 객체 생성
+    void makeEnemy()//enemy object create
     {
         int randomNumb = Random.Range(0, prefabs.EnemyNumber);
-        GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);
+        GameObject enemyInstance = Instantiate(prefabs.EnemyList[randomNumb]);//prefab 복제하여 적 객체 생성
         int enemyLocationlist = Random.Range(0, 6);
         enemyInstance.transform.position = enemyLocation[enemyLocationlist];
 
         enemyInstance.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power += playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv;
     }
 
-    void EnemyLocationSet()
+    void EnemyLocationSet()//enemy start location set
     {
         enemyLocation.Add(new Vector3(-5f, 8f,0));
         enemyLocation.Add(new Vector3(5f, 8f,0));
@@ -77,22 +77,16 @@ public class GameManager : MonoBehaviour
         enemyLocation.Add(new Vector3(5f, -8f,0));
     }
 
-    public void PopUpEnd()//마지막에 결과 표시
+    public void PopUpEnd()//result UI
     {
         GameMenuController.menu.GameEnd(GameEndType.GameOver);
-        DataSaveAndLoad();
-
-        
+        DataSaveAndLoad();   
     }
 
-    public void ChangeHpBar(float attack)//받은 데미지에 따른 체력바 UI 변경
+    public void ChangeHpBar(float attack)//damage -> hp bar UI change
     {
-        //if(attack != 5 && healthSystem.) AudioManager.instance.PlayClip(SFXClipType.Hit);
-
-        //float maxHp = playerobject.GetComponent<HealthSystem>().MaxHealth;
-        //playerHpBar.transform.localScale = new Vector3(-attack / maxHp, 0, 0);
-        float maxHp = healthSystem.MaxHealth;
-        playerHpBar.transform.localScale = new Vector3(-((maxHp - healthSystem.CurrentHealth) / maxHp), 1, 1);
+        float maxHp = healthSystem.MaxHealth;//gets max hp
+        playerHpBar.transform.localScale = new Vector3(-((maxHp - healthSystem.CurrentHealth) / maxHp), 1, 1);//hp bar UI change
         if (playerHpBar.GetComponent<Transform>().localScale.x <= -1)
         {
             float y = playerHpBar.GetComponent<Transform>().localScale.y;
@@ -107,35 +101,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void PlayHitSFX()
+    private void PlayHitSFX()//hit 효과음 제공
     {
         AudioManager.instance.PlayClip(SFXClipType.Hit);
     }
 
-    public void ExpChange(float exp)
+    public void ExpChange(float exp)//enemy death -> exp earned -> change applied
     {  
-        playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;
-        enemyDefeatCount++;
+        playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp += exp;//exp earned
+        enemyDefeatCount++;//count that effects result score
 
         float currentExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp;
-        float maxExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.fullExp;
-        if (currentExp >= maxExp)
+        float maxExp = playerobject.GetComponent<CharacterStatHandler>().CurrentStats.fullExp;//gets max exp
+        if (currentExp >= maxExp)//exp is bigger than max exp -> level up, stat change, hp recovery, exp to 0
         {
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.exp = 0;
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.lv++;
             playerobject.GetComponent<CharacterStatHandler>().CurrentStats.attackSO.power++;
             playerobject.GetComponent<HealthSystem>().ChangeHealth(5);
 
-            ChangeHpBar(-5);
+            ChangeHpBar(-5);//bar change code gets attack damage, so to become positive effect, 매개변수 has to be -
 
             AudioManager.instance.PlayClip(SFXClipType.LevelUp);
         }
     }
 
-    public void DataSaveAndLoad()
+    public void DataSaveAndLoad()//player data save and load, gets 1,2,3 top score
     {
 
-        //기록들을 불러와서 현재 기록과 비교 후 상위 3개 저장 
+        //gets score data and compare with player's current record 
         if (PlayerPrefs.HasKey("bestScore1") == true && PlayerPrefs.HasKey("bestScore2") == true && PlayerPrefs.HasKey("bestScore3") == true)
         {
             int temp1 = PlayerPrefs.GetInt("bestScore1");
@@ -239,11 +233,10 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetString("bestScore1Name", GameManager.instance.textname.text);
             PlayerPrefs.SetInt("bestScore1", GameManager.instance.enemyDefeatCount * 1 + (int)TimeManager.timeIns.timeGoing * 4);
         }
-        Debug.Log(PlayerPrefs.GetString("bestScore1Name"));
+        
 
-        Debug.Log(charactername1.text);
+        //result 1,2,3 score data display
         charactername1.text = PlayerPrefs.HasKey("bestScore1Name") ? PlayerPrefs.GetString("bestScore1Name") : "---";
-        Debug.Log(charactername1.text);
         charactername2.text = PlayerPrefs.HasKey("bestScore2Name") ? PlayerPrefs.GetString("bestScore2Name") : "---";
         charactername3.text = PlayerPrefs.HasKey("bestScore3Name") ? PlayerPrefs.GetString("bestScore3Name") : "---";
 
